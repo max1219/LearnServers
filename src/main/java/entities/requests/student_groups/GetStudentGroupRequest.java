@@ -10,9 +10,4 @@ public class GetStudentGroupRequest {
     public long getId() {
         return id;
     }
-
-    @Override
-    public String toString() {
-        return "GetStudentGroupRequest(" + id + ")";
-    }
 }

@@ -34,15 +34,4 @@ public class EditLessonRequest {
     public long getGroupId() {
         return groupId;
     }
-
-    @Override
-    public String toString() {
-        return "EditLessonRequest{" +
-                "id=" + id +
-                ", date='" + date + '\'' +
-                ", number=" + number +
-                ", teacherId=" + teacherId +
-                ", groupId=" + groupId +
-                '}';
-    }
 }

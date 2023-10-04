@@ -28,14 +28,4 @@ public class EditTeacherRequest {
     public String getMiddleName() {
         return middleName;
     }
-
-    @Override
-    public String toString() {
-        return "EditTeacherRequest{" +
-                "id=" + id +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                '}';
-    }
 }

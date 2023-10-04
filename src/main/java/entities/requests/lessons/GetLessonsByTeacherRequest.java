@@ -22,13 +22,4 @@ public class GetLessonsByTeacherRequest {
     public long getTeacherId() {
         return teacherId;
     }
-
-    @Override
-    public String toString() {
-        return "GetLessonsByTeacherRequest{" +
-                "startDate='" + startDate + '\'' +
-                ", endDate='" + endDate + '\'' +
-                ", teacherId=" + teacherId +
-                '}';
-    }
 }

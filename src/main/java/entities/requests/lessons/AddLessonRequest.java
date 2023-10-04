@@ -28,14 +28,4 @@ public class AddLessonRequest {
     public long getGroupId() {
         return groupId;
     }
-
-    @Override
-    public String toString() {
-        return "AddLessonRequest{" +
-                "date='" + date + '\'' +
-                ", number=" + number +
-                ", teacherId=" + teacherId +
-                ", groupId=" + groupId +
-                '}';
-    }
 }

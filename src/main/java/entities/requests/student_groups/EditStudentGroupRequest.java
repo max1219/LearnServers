@@ -16,12 +16,4 @@ public class EditStudentGroupRequest {
     public String getNewName() {
         return newName;
     }
-
-    @Override
-    public String toString() {
-        return "EditStudentGroupRequest{" +
-                "id=" + id +
-                ", newName='" + newName + '\'' +
-                '}';
-    }
 }

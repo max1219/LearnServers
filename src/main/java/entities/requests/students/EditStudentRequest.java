@@ -40,16 +40,4 @@ public class EditStudentRequest {
     public String getStatus() {
         return status;
     }
-
-    @Override
-    public String toString() {
-        return "EditStudentRequest{" +
-                "id=" + id +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", groupId='" + groupId + '\'' +
-                ", status='" + status + '\'' +
-                '}';
-    }
 }

@@ -16,12 +16,4 @@ public class EditSubjectRequest {
     public String getName() {
         return name;
     }
-
-    @Override
-    public String toString() {
-        return "EditSubjectRequest{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }

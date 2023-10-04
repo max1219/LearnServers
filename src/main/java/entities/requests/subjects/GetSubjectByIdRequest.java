@@ -10,9 +10,4 @@ public class GetSubjectByIdRequest {
     public long getId() {
         return id;
     }
-
-    @Override
-    public String toString() {
-        return "GetSubjectByIdRequest(" + id + ")";
-    }
 }

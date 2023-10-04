@@ -10,9 +10,4 @@ public class DeleteTeacherRequest {
     public long getId() {
         return id;
     }
-
-    @Override
-    public String toString() {
-        return "DeleteTeacherRequest(" + id + ")";
-    }
 }

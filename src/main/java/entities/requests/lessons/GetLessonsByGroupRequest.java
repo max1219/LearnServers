@@ -22,13 +22,4 @@ public class GetLessonsByGroupRequest {
     public long getGroupId() {
         return groupId;
     }
-
-    @Override
-    public String toString() {
-        return "GetLessonsByGroupRequest{" +
-                "startDate='" + startDate + '\'' +
-                ", endDate='" + endDate + '\'' +
-                ", groupId=" + groupId +
-                '}';
-    }
 }

@@ -34,15 +34,4 @@ public class AddStudentRequest {
     public String getStatus() {
         return status;
     }
-
-    @Override
-    public String toString() {
-        return "AddStudentRequest{" +
-                "lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", groupId='" + groupId + '\'' +
-                ", status='" + status + '\'' +
-                '}';
-    }
 }

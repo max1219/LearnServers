@@ -22,13 +22,4 @@ public class AddTeacherRequest {
     public String getMiddleName() {
         return middleName;
     }
-
-    @Override
-    public String toString() {
-        return "AddTeacherRequest{" +
-                "lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                '}';
-    }
 }
