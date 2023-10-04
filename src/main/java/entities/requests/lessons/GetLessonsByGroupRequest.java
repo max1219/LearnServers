@@ -1,0 +1,34 @@
+package entities.requests.lessons;
+
+public class GetLessonsByGroupRequest {
+    private final String startDate;
+    private final String endDate;
+    private final long groupId;
+
+    public GetLessonsByGroupRequest(String startDate, String endDate, long groupId) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.groupId = groupId;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public long getGroupId() {
+        return groupId;
+    }
+
+    @Override
+    public String toString() {
+        return "GetLessonsByGroupRequest{" +
+                "startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", groupId=" + groupId +
+                '}';
+    }
+}
