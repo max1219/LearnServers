@@ -1,9 +1,9 @@
 package entities.requests.lessons;
 
-public class DeleteLessonId {
+public class DeleteLessonRequest {
     private final long id;
 
-    public DeleteLessonId(long id) {
+    public DeleteLessonRequest(long id) {
         this.id = id;
     }
 
