@@ -4,10 +4,10 @@ public class AddStudentRequest {
     private final String lastName;
     private final String firstName;
     private final String middleName;
-    private final String groupId;
+    private final long groupId;
     private final String status;
 
-    public AddStudentRequest(String lastName, String firstName, String middleName, String groupId, String status) {
+    public AddStudentRequest(String lastName, String firstName, String middleName, long groupId, String status) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -27,7 +27,7 @@ public class AddStudentRequest {
         return middleName;
     }
 
-    public String getGroupId() {
+    public long getGroupId() {
         return groupId;
     }
 
