@@ -3,11 +3,11 @@ package repositories.interfaces;
 import entities.database.Student;
 
 public interface IStudentRepository {
-    long add(String lastName, String firstName, String middleName, long groupId, String status);
+    long add(Student student);
 
     void delete(long id);
 
-    void edit(long id, String lastName, String firstName, String middleName, long groupId, String status);
+    void edit(Student student);
 
     Student getById(long id);
 

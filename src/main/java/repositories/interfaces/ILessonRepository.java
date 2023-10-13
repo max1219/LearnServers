@@ -3,9 +3,9 @@ package repositories.interfaces;
 import entities.database.Lesson;
 
 public interface ILessonRepository {
-    long add(String date, int number, long teacherId, long groupId);
+    long add(Lesson lesson);
 
-    void edit(long id, String date, int number, long teacherId, long groupId);
+    void edit(Lesson lesson);
 
     void delete(long id);
 

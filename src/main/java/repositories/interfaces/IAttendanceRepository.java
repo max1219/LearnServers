@@ -3,9 +3,9 @@ package repositories.interfaces;
 import entities.database.Attendance;
 
 public interface IAttendanceRepository {
-    long add(String name);
+    long add(Attendance attendance);
 
-    void edit(long id, String newName);
+    void edit(Attendance attendance);
 
     void delete(long id);
 

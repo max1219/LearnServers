@@ -3,11 +3,11 @@ package repositories.interfaces;
 import entities.database.Subject;
 
 public interface ISubjectRepository {
-    long add(String name);
+    long add(Subject subject);
 
     void delete(long id);
 
-    void edit(long id, String newName);
+    void edit(Subject subject);
 
     Subject getById(long id);
 
