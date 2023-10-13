@@ -15,8 +15,8 @@ public interface ILessonRepository {
 
     Lesson getById(long id);
 
-    Lesson[] getByTeacherId(long id);
+    Lesson[] getByTeacherId(String startDate, String endDate, long id);
 
-    Lesson[] getByGroupId(long id);
+    Lesson[] getByGroupId(String startDate, String endDate, long id);
 
 }
