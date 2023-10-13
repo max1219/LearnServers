@@ -1,5 +1,7 @@
 package entities.database;
 
+import java.util.Objects;
+
 public class Student {
     private final Long id;
     private final String lastName;
@@ -41,5 +43,16 @@ public class Student {
         return status;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(id, student.id) && Objects.equals(lastName, student.lastName) && Objects.equals(firstName, student.firstName) && Objects.equals(middleName, student.middleName) && Objects.equals(groupId, student.groupId) && Objects.equals(status, student.status);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, lastName, firstName, middleName, groupId, status);
+    }
 }

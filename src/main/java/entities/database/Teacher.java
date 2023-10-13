@@ -1,5 +1,7 @@
 package entities.database;
 
+import java.util.Objects;
+
 public class Teacher {
     private final Long id;
     private final String lastName;
@@ -29,5 +31,16 @@ public class Teacher {
         return middleName;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Teacher teacher = (Teacher) o;
+        return Objects.equals(id, teacher.id) && Objects.equals(lastName, teacher.lastName) && Objects.equals(firstName, teacher.firstName) && Objects.equals(middleName, teacher.middleName);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, lastName, firstName, middleName);
+    }
 }

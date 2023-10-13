@@ -1,5 +1,7 @@
 package entities.database;
 
+import java.util.Objects;
+
 public class Lesson {
     private final Long id;
     private final String date;
@@ -35,5 +37,16 @@ public class Lesson {
         return groupId;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Lesson lesson = (Lesson) o;
+        return number == lesson.number && teacherId == lesson.teacherId && groupId == lesson.groupId && Objects.equals(id, lesson.id) && Objects.equals(date, lesson.date);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, date, number, teacherId, groupId);
+    }
 }
