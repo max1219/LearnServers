@@ -5,15 +5,21 @@ import java.util.Objects;
 
 public class Attendance {
     private final Long id;
+    private final Long lessonId;
     private final long[] visitedId;
 
-    public Attendance(Long id, long[] visitedId) {
+    public Attendance(Long id, Long lessonId, long[] visitedId) {
         this.id = id;
+        this.lessonId = lessonId;
         this.visitedId = visitedId;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public Long getLessonId() {
+        return lessonId;
     }
 
     public long[] getVisitedId() {
