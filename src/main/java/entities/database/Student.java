@@ -41,15 +41,5 @@ public class Student {
         return status;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", groupId='" + groupId + '\'' +
-                ", status='" + status + '\'' +
-                '}';
-    }
+
 }

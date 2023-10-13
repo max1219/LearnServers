@@ -17,11 +17,5 @@ public class StudentGroup{
         return name;
     }
 
-    @Override
-    public String toString() {
-        return "GetStudentGroupsResponse.StudentGroup{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
+
 }

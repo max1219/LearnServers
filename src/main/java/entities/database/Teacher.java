@@ -29,13 +29,5 @@ public class Teacher {
         return middleName;
     }
 
-    @Override
-    public String toString() {
-        return "Teacher{" +
-                "id=" + id +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                '}';
-    }
+
 }

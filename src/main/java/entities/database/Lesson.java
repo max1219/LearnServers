@@ -35,14 +35,5 @@ public class Lesson {
         return groupId;
     }
 
-    @Override
-    public String toString() {
-        return "Lesson{" +
-                "id=" + id +
-                ", date='" + date + '\'' +
-                ", number=" + number +
-                ", teacherId=" + teacherId +
-                ", groupId=" + groupId +
-                '}';
-    }
+
 }
