@@ -1,10 +1,10 @@
-package entities;
+package entities.database;
 
-public class Subject {
+public class StudentGroup{
     private final Long id;
     private final String name;
 
-    public Subject(Long id, String name) {
+    public StudentGroup(Long id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -19,7 +19,7 @@ public class Subject {
 
     @Override
     public String toString() {
-        return "Subject{" +
+        return "GetStudentGroupsResponse.StudentGroup{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

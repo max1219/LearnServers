@@ -1,4 +1,4 @@
-package entities;
+package entities.database;
 
 public class Student {
     private final Long id;
