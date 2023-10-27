@@ -31,7 +31,7 @@ public class StudentController {
         return new ResponseEntity<>(null, (short) 200);
     }
 
-    public ResponseEntity<List<GetStudentResponse>> getStudentById(GetStudentByIdRequest request){
+    public ResponseEntity<GetStudentResponse> getStudentById(GetStudentByIdRequest request){
         List<String> errors = getStudentByIdRequestValidator.validate(request);
         if (!errors.isEmpty()) {
             return new ResponseEntity<>(null, (short) 400);
@@ -39,7 +39,7 @@ public class StudentController {
         return new ResponseEntity<>(null, (short) 200);
     }
 
-    public ResponseEntity<List<AddStudentResponse>> addStudent(AddStudentRequest request){
+    public ResponseEntity<AddStudentResponse> addStudent(AddStudentRequest request){
         List<String> errors = addStudentRequestValidator.validate(request);
         if (!errors.isEmpty()) {
             return new ResponseEntity<>(null, (short) 400);
@@ -47,7 +47,7 @@ public class StudentController {
         return new ResponseEntity<>(null, (short) 200);
     }
 
-    public ResponseEntity<List<Void>> editStudent(EditStudentRequest request){
+    public ResponseEntity<Void> editStudent(EditStudentRequest request){
         List<String> errors = editStudentRequestValidator.validate(request);
         if (!errors.isEmpty()) {
             return new ResponseEntity<>(null, (short) 400);
@@ -55,7 +55,7 @@ public class StudentController {
         return new ResponseEntity<>(null, (short) 200);
     }
 
-    public ResponseEntity<List<Void>> deleteStudent(DeleteStudentRequest request){
+    public ResponseEntity<Void> deleteStudent(DeleteStudentRequest request){
         List<String> errors = deleteStudentRequestValidator.validate(request);
         if (!errors.isEmpty()) {
             return new ResponseEntity<>(null, (short) 400);
