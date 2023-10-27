@@ -21,10 +21,10 @@ public class EditStudentGroupRequestValidator implements IRequestValidator<EditS
     public List<String> validate(EditStudentGroupRequest obj) {
         List<String> result = new ArrayList<>(2);
 
-        if (!idValidator.validate(obj.getId())){
+        if (!idValidator.validate(obj.getId())) {
             result.add("Incorrect group id");
         }
-        if (!nameValidator.validate(obj.getNewName())){
+        if (!nameValidator.validate(obj.getNewName())) {
             result.add("Incorrect name");
         }
 

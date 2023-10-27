@@ -18,7 +18,7 @@ public class GetTeacherByIdRequestValidator implements IRequestValidator<GetTeac
     public List<String> validate(GetTeacherByIdRequest obj) {
         List<String> result = new ArrayList<>(1);
 
-        if (!idValidator.validate(obj.getId())){
+        if (!idValidator.validate(obj.getId())) {
             result.add("Incorrect id");
         }
 

@@ -30,24 +30,25 @@ public class EditStudentRequestValidator implements IRequestValidator<EditStuden
     public List<String> validate(EditStudentRequest obj) {
         List<String> result = new ArrayList<>(6);
 
-        if (!idValidator.validate(obj.getId())){
+        if (!idValidator.validate(obj.getId())) {
             result.add("Incorrect id");
         }
-        if (!lastNameValidator.validate(obj.getLastName())){
+        if (!lastNameValidator.validate(obj.getLastName())) {
             result.add("Incorrect last name");
         }
-        if (!firstNameValidator.validate(obj.getFirstName())){
+        if (!firstNameValidator.validate(obj.getFirstName())) {
             result.add("Incorrect first name");
         }
-        if (!middleNameValidator.validate(obj.getMiddleName())){
+        if (!middleNameValidator.validate(obj.getMiddleName())) {
             result.add("Incorrect middle name");
         }
-        if (!groupIdValidator.validate(obj.getGroupId())){
+        if (!groupIdValidator.validate(obj.getGroupId())) {
             result.add("Incorrect group id");
         }
-        if (!statusValidator.validate(obj.getStatus())){
+        if (!statusValidator.validate(obj.getStatus())) {
             result.add("Incorrect status");
         }
 
-        return result;    }
+        return result;
+    }
 }

@@ -27,7 +27,7 @@ public class SimpleTeacherRepository implements ITeacherRepository {
 
     @Override
     public Teacher[] getAll() {
-        return new Teacher[] {
+        return new Teacher[]{
                 new Teacher(0L, "A", "B", "C"),
                 new Teacher(1L, "A1", "B1", "C1")
         };

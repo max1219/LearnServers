@@ -29,7 +29,7 @@ public class GetLessonByGroupRequestValidator implements IRequestValidator<GetLe
         if (!endDateValidator.validate(obj.getEndDate())) {
             result.add("Incorrect end date");
         }
-        if (!idValidator.validate(obj.getGroupId())){
+        if (!idValidator.validate(obj.getGroupId())) {
             result.add("Incorrect group id");
         }
 

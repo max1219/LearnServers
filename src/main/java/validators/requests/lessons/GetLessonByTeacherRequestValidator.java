@@ -29,7 +29,7 @@ public class GetLessonByTeacherRequestValidator implements IRequestValidator<Get
         if (!endDateValidator.validate(obj.getEndDate())) {
             result.add("Incorrect end date");
         }
-        if (!idValidator.validate(obj.getTeacherId())){
+        if (!idValidator.validate(obj.getTeacherId())) {
             result.add("Incorrect group id");
         }
 

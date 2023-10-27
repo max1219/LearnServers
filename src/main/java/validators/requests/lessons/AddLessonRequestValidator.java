@@ -27,16 +27,16 @@ public class AddLessonRequestValidator implements IRequestValidator<AddLessonReq
     public List<String> validate(AddLessonRequest obj) {
         List<String> result = new ArrayList<>(4);
 
-        if (!dateValidator.validate(obj.getDate())){
+        if (!dateValidator.validate(obj.getDate())) {
             result.add("Incorrect date");
         }
-        if (!classNumberValidator.validate(obj.getNumber())){
+        if (!classNumberValidator.validate(obj.getNumber())) {
             result.add("Incorrect class number");
         }
-        if (!teacherIdValidator.validate(obj.getTeacherId())){
+        if (!teacherIdValidator.validate(obj.getTeacherId())) {
             result.add("Incorrect teacher id");
         }
-        if (!groupIdValidator.validate(obj.getGroupId())){
+        if (!groupIdValidator.validate(obj.getGroupId())) {
             result.add("Incorrect group id");
         }
 

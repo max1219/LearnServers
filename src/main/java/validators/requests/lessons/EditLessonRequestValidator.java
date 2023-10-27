@@ -28,19 +28,19 @@ public class EditLessonRequestValidator implements IRequestValidator<EditLessonR
     public List<String> validate(EditLessonRequest obj) {
         List<String> result = new ArrayList<>(5);
 
-        if (!lessonIdValidator.validate(obj.getId())){
+        if (!lessonIdValidator.validate(obj.getId())) {
             result.add("Incorrect lesson id");
         }
-        if (!dateValidator.validate(obj.getDate())){
+        if (!dateValidator.validate(obj.getDate())) {
             result.add("Incorrect date");
         }
-        if (!classNumberValidator.validate(obj.getNumber())){
+        if (!classNumberValidator.validate(obj.getNumber())) {
             result.add("Incorrect class number");
         }
-        if (!teacherIdValidator.validate(obj.getTeacherId())){
+        if (!teacherIdValidator.validate(obj.getTeacherId())) {
             result.add("Incorrect teacher id");
         }
-        if (!groupIdValidator.validate(obj.getGroupId())){
+        if (!groupIdValidator.validate(obj.getGroupId())) {
             result.add("Incorrect group id");
         }
 

@@ -22,7 +22,7 @@ public class EditAttendanceRequestValidator implements IRequestValidator<EditAtt
     public List<String> validate(EditAttendanceRequest obj) {
         List<String> result = new ArrayList<>(3);
 
-        if(!attendanceIdValidator.validate(obj.getId())){
+        if (!attendanceIdValidator.validate(obj.getId())) {
             result.add("Incorrect attendance id");
         }
         if (!lessonIdValidator.validate(obj.getLessonId())) {

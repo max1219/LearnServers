@@ -2,7 +2,7 @@ package entities.database;
 
 import java.util.Objects;
 
-public class StudentGroup{
+public class StudentGroup {
     private final Long id;
     private final String name;
 

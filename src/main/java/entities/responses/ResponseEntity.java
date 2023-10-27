@@ -1,6 +1,6 @@
 package entities.responses;
 
-public class ResponseEntity <T>{
+public class ResponseEntity<T> {
     private final T arg;
     private final short statusCode;
 

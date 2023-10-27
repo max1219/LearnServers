@@ -18,7 +18,7 @@ public class DeleteLessonRequestValidator implements IRequestValidator<DeleteLes
     public List<String> validate(DeleteLessonRequest obj) {
         List<String> result = new ArrayList<>(1);
 
-        if (!idValidator.validate(obj.getId())){
+        if (!idValidator.validate(obj.getId())) {
             result.add("Incorrect lesson id");
         }
 

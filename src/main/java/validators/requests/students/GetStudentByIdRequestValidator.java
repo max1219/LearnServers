@@ -18,7 +18,7 @@ public class GetStudentByIdRequestValidator implements IRequestValidator<GetStud
     public List<String> validate(GetStudentByIdRequest obj) {
         List<String> result = new ArrayList<>(1);
 
-        if (!idValidator.validate(obj.getId())){
+        if (!idValidator.validate(obj.getId())) {
             result.add("Incorrect id");
         }
 

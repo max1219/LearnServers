@@ -18,7 +18,7 @@ public class GetSubjectByIdRequestValidator implements IRequestValidator<GetSubj
     public List<String> validate(GetSubjectByIdRequest obj) {
         List<String> result = new ArrayList<>(1);
 
-        if (!idValidator.validate(obj.getId())){
+        if (!idValidator.validate(obj.getId())) {
             result.add("Incorrect id");
         }
 

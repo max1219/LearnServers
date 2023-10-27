@@ -21,10 +21,10 @@ public class EditSubjectRequestValidator implements IRequestValidator<EditSubjec
     public List<String> validate(EditSubjectRequest obj) {
         List<String> result = new ArrayList<>(2);
 
-        if (!idValidator.validate(obj.getId())){
+        if (!idValidator.validate(obj.getId())) {
             result.add("Incorrect group id");
         }
-        if (!nameValidator.validate(obj.getName())){
+        if (!nameValidator.validate(obj.getName())) {
             result.add("Incorrect name");
         }
 

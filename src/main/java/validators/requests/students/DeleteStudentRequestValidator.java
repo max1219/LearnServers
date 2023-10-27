@@ -18,7 +18,7 @@ public class DeleteStudentRequestValidator implements IRequestValidator<DeleteSt
     public List<String> validate(DeleteStudentRequest obj) {
         List<String> result = new ArrayList<>(1);
 
-        if (!idValidator.validate(obj.getId())){
+        if (!idValidator.validate(obj.getId())) {
             result.add("Incorrect id");
         }
 

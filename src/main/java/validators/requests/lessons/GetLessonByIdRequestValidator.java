@@ -19,7 +19,7 @@ public class GetLessonByIdRequestValidator implements IRequestValidator<GetLesso
     public List<String> validate(GetLessonByIdRequest obj) {
         List<String> result = new ArrayList<>(1);
 
-        if (!idValidator.validate(obj.getId())){
+        if (!idValidator.validate(obj.getId())) {
             result.add("Incorrect lesson id");
         }
 

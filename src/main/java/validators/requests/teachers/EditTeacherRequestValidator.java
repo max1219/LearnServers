@@ -25,18 +25,19 @@ public class EditTeacherRequestValidator implements IRequestValidator<EditTeache
     public List<String> validate(EditTeacherRequest obj) {
         List<String> result = new ArrayList<>(4);
 
-        if (!idValidator.validate(obj.getId())){
+        if (!idValidator.validate(obj.getId())) {
             result.add("Incorrect id");
         }
-        if (!lastNameValidator.validate(obj.getLastName())){
+        if (!lastNameValidator.validate(obj.getLastName())) {
             result.add("Incorrect last name");
         }
-        if (!firstNameValidator.validate(obj.getFirstName())){
+        if (!firstNameValidator.validate(obj.getFirstName())) {
             result.add("Incorrect first name");
         }
-        if (!middleNameValidator.validate(obj.getMiddleName())){
+        if (!middleNameValidator.validate(obj.getMiddleName())) {
             result.add("Incorrect middle name");
         }
 
-        return result;    }
+        return result;
+    }
 }
