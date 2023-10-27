@@ -7,7 +7,7 @@ public class Student {
     private final String lastName;
     private final String firstName;
     private final String middleName;
-    private final Long groupId;
+    private final long groupId;
     private final String status;
 
     public Student(Long id, String lastName, String firstName, String middleName, Long groupId, String status) {
