@@ -1,4 +1,4 @@
-package repositories.simples;
+package repositories.samples.simples;
 
 import entities.database.Lesson;
 import repositories.interfaces.ILessonRepository;
