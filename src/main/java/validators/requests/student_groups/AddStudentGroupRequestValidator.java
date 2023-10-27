@@ -1,11 +1,11 @@
 package validators.requests.student_groups;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import entities.requests.student_groups.AddStudentGroupRequest;
 import validators.primes.interfaces.INameValidator;
 import validators.requests.IRequestValidator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class AddStudentGroupRequestValidator implements IRequestValidator<AddStudentGroupRequest> {

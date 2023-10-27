@@ -1,11 +1,11 @@
 package validators.requests.lessons;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import entities.requests.lessons.DeleteLessonRequest;
 import validators.primes.interfaces.IIdValidator;
 import validators.requests.IRequestValidator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DeleteLessonRequestValidator implements IRequestValidator<DeleteLessonRequest> {
     private final IIdValidator idValidator;

@@ -1,13 +1,13 @@
 package validators.requests.lessons;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import entities.requests.lessons.AddLessonRequest;
 import validators.primes.interfaces.IClassNumberValidator;
 import validators.primes.interfaces.IDateValidator;
 import validators.primes.interfaces.IIdValidator;
 import validators.requests.IRequestValidator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class AddLessonRequestValidator implements IRequestValidator<AddLessonRequest> {

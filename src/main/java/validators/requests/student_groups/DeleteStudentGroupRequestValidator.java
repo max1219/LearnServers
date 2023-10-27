@@ -1,11 +1,11 @@
 package validators.requests.student_groups;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import entities.requests.student_groups.DeleteStudentGroupRequest;
 import validators.primes.interfaces.IIdValidator;
 import validators.requests.IRequestValidator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DeleteStudentGroupRequestValidator implements IRequestValidator<DeleteStudentGroupRequest> {
     private final IIdValidator idValidator;

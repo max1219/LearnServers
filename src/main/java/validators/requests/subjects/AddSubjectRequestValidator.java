@@ -1,6 +1,5 @@
 package validators.requests.subjects;
 
-import entities.requests.student_groups.AddStudentGroupRequest;
 import entities.requests.subjects.AddSubjectRequest;
 import validators.primes.interfaces.INameValidator;
 import validators.requests.IRequestValidator;
