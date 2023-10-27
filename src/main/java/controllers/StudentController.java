@@ -4,18 +4,23 @@ import entities.requests.students.*;
 import entities.responses.ResponseEntity;
 import entities.responses.students.AddStudentResponse;
 import entities.responses.students.GetStudentResponse;
+import exceptions.service_exceptions.NotFoundException;
+import services.interfaces.IStudentService;
 import validators.requests.students.*;
 
+import java.util.Collections;
 import java.util.List;
 
 public class StudentController {
+    private final IStudentService studentService;
     private final AddStudentRequestValidator addStudentRequestValidator;
     private final DeleteStudentRequestValidator deleteStudentRequestValidator;
     private final EditStudentRequestValidator editStudentRequestValidator;
     private final GetStudentByIdRequestValidator getStudentByIdRequestValidator;
     private final GetStudentsByGroupRequestValidator getStudentsByGroupRequestValidator;
 
-    public StudentController(AddStudentRequestValidator addStudentRequestValidator, DeleteStudentRequestValidator deleteStudentRequestValidator, EditStudentRequestValidator editStudentRequestValidator, GetStudentByIdRequestValidator getStudentByIdRequestValidator, GetStudentsByGroupRequestValidator getStudentsByGroupRequestValidator) {
+    public StudentController(IStudentService studentService, AddStudentRequestValidator addStudentRequestValidator, DeleteStudentRequestValidator deleteStudentRequestValidator, EditStudentRequestValidator editStudentRequestValidator, GetStudentByIdRequestValidator getStudentByIdRequestValidator, GetStudentsByGroupRequestValidator getStudentsByGroupRequestValidator) {
+        this.studentService = studentService;
         this.addStudentRequestValidator = addStudentRequestValidator;
         this.deleteStudentRequestValidator = deleteStudentRequestValidator;
         this.editStudentRequestValidator = editStudentRequestValidator;
@@ -24,42 +29,85 @@ public class StudentController {
     }
 
     public ResponseEntity<List<GetStudentResponse>> getStudentsByGroup(GetStudentsByGroupRequest request) {
-        List<String> errors = getStudentsByGroupRequestValidator.validate(request);
-        if (!errors.isEmpty()) {
-            return new ResponseEntity<>(null, (short) 400);
+        try {
+            List<String> errors = getStudentsByGroupRequestValidator.validate(request);
+            if (!errors.isEmpty()) {
+                return new ResponseEntity<>(null, (short) 422, errors);
+            }
+            try {
+                List<GetStudentResponse> response = studentService.getStudentsByGroup(request);
+                return new ResponseEntity<>(response, (short) 200, null);
+            } catch (NotFoundException ex) {
+                return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
+            }
+        } catch (Exception ex) {
+            return new ResponseEntity<>(null, (short) 500, Collections.singletonList(ex.getMessage()));
         }
-        return new ResponseEntity<>(null, (short) 200);
     }
 
     public ResponseEntity<GetStudentResponse> getStudentById(GetStudentByIdRequest request) {
-        List<String> errors = getStudentByIdRequestValidator.validate(request);
-        if (!errors.isEmpty()) {
-            return new ResponseEntity<>(null, (short) 400);
+        try {
+            List<String> errors = getStudentByIdRequestValidator.validate(request);
+            if (!errors.isEmpty()) {
+                return new ResponseEntity<>(null, (short) 422, errors);
+            }
+            try {
+                GetStudentResponse response = studentService.getStudentsById(request);
+                return new ResponseEntity<>(response, (short) 200, null);
+            } catch (NotFoundException ex) {
+                return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
+            }
+        } catch (Exception ex) {
+            return new ResponseEntity<>(null, (short) 500, Collections.singletonList(ex.getMessage()));
         }
-        return new ResponseEntity<>(null, (short) 200);
     }
 
     public ResponseEntity<AddStudentResponse> addStudent(AddStudentRequest request) {
-        List<String> errors = addStudentRequestValidator.validate(request);
-        if (!errors.isEmpty()) {
-            return new ResponseEntity<>(null, (short) 400);
+        try {
+            List<String> errors = addStudentRequestValidator.validate(request);
+            if (!errors.isEmpty()) {
+                return new ResponseEntity<>(null, (short) 422, errors);
+            }
+
+            AddStudentResponse response = studentService.addStudent(request);
+            return new ResponseEntity<>(response, (short) 200, null);
+
+        } catch (Exception ex) {
+            return new ResponseEntity<>(null, (short) 500, Collections.singletonList(ex.getMessage()));
         }
-        return new ResponseEntity<>(null, (short) 200);
     }
 
     public ResponseEntity<Void> editStudent(EditStudentRequest request) {
-        List<String> errors = editStudentRequestValidator.validate(request);
-        if (!errors.isEmpty()) {
-            return new ResponseEntity<>(null, (short) 400);
+        try {
+            List<String> errors = editStudentRequestValidator.validate(request);
+            if (!errors.isEmpty()) {
+                return new ResponseEntity<>(null, (short) 422, errors);
+            }
+            try {
+                studentService.editStudent(request);
+                return new ResponseEntity<>(null, (short) 200, null);
+            } catch (NotFoundException ex) {
+                return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
+            }
+        } catch (Exception ex) {
+            return new ResponseEntity<>(null, (short) 500, Collections.singletonList(ex.getMessage()));
         }
-        return new ResponseEntity<>(null, (short) 200);
     }
 
     public ResponseEntity<Void> deleteStudent(DeleteStudentRequest request) {
-        List<String> errors = deleteStudentRequestValidator.validate(request);
-        if (!errors.isEmpty()) {
-            return new ResponseEntity<>(null, (short) 400);
+        try {
+            List<String> errors = deleteStudentRequestValidator.validate(request);
+            if (!errors.isEmpty()) {
+                return new ResponseEntity<>(null, (short) 422, errors);
+            }
+            try {
+                studentService.deleteStudent(request);
+                return new ResponseEntity<>(null, (short) 200, null);
+            } catch (NotFoundException ex) {
+                return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
+            }
+        } catch (Exception ex) {
+            return new ResponseEntity<>(null, (short) 500, Collections.singletonList(ex.getMessage()));
         }
-        return new ResponseEntity<>(null, (short) 200);
     }
 }
