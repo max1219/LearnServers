@@ -32,22 +32,22 @@ public class SimpleLessonRepository implements ILessonRepository {
 
     @Override
     public Lesson getById(long id) {
-        return new Lesson(0L, "1", 1, 0L, 0L);
+        return new Lesson(0L, 0L, "1", 1, 0L, 0L);
     }
 
     @Override
     public Lesson[] getByTeacherId(String startDate, String endDate, long id) {
         return new Lesson[]{
-                new Lesson(0L, "1", 1, 0L, 0L),
-                new Lesson(2L, "2", 2, 2L, 2L)
+                new Lesson(0L, 0L, "1", 1, 0L, 0L),
+                new Lesson(2L, 2L, "2", 2, 2L, 2L)
         };
     }
 
     @Override
     public Lesson[] getByGroupId(String startDate, String endDate, long id) {
         return new Lesson[]{
-                new Lesson(0L, "1", 1, 0L, 0L),
-                new Lesson(2L, "2", 2, 2L, 2L)
+                new Lesson(0L, 0L, "1", 1, 0L, 0L),
+                new Lesson(2L, 2L, "2", 2, 2L, 2L)
         };
     }
 }

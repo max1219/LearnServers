@@ -5,7 +5,7 @@ import exceptions.repository_exceptions.NotEnoughMemoryException;
 import exceptions.repository_exceptions.NotFoundException;
 
 public interface IAttendanceRepository {
-    long add(Attendance attendance) throws NotEnoughMemoryException;
+    long add(Attendance attendance) throws NotEnoughMemoryException, NotFoundException;
 
     void edit(Attendance attendance) throws NotEnoughMemoryException, NotFoundException;
 

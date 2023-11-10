@@ -32,7 +32,7 @@ public class ArrayLessonRepository implements ILessonRepository {
                 throw new NotEnoughMemoryException();
             }
         }
-        lesson = new Lesson((long) id, lesson.getDate(), lesson.getNumber(), lesson.getTeacherId(), lesson.getGroupId());
+        lesson = new Lesson((long) id, lesson.getAttendanceId(), lesson.getDate(), lesson.getNumber(), lesson.getTeacherId(), lesson.getGroupId());
         database.lessons[id] = lesson;
         return id;
     }
