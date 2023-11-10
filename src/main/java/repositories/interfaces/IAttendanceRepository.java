@@ -1,14 +1,16 @@
 package repositories.interfaces;
 
 import entities.database.Attendance;
+import exceptions.repository_exceptions.NotEnoughMemoryException;
+import exceptions.repository_exceptions.NotFoundException;
 
 public interface IAttendanceRepository {
-    long add(Attendance attendance);
+    long add(Attendance attendance) throws NotEnoughMemoryException;
 
-    void edit(Attendance attendance);
+    void edit(Attendance attendance) throws NotEnoughMemoryException, NotFoundException;
 
-    void delete(long id);
+    void delete(long id) throws NotFoundException;
 
-    Attendance getById(long id);
+    Attendance getById(long id) throws NotFoundException;
 
 }
