@@ -11,7 +11,7 @@ import exceptions.service_exceptions.ServiceException;
 import java.util.List;
 
 public interface IStudentGroupService {
-    List<GetStudentGroupResponse> getStudentsGroups() throws ServiceException;
+    List<GetStudentGroupResponse> getStudentGroups() throws ServiceException;
 
     GetStudentGroupResponse getStudentGroupById(GetStudentGroupRequest request) throws ServiceException;
 

@@ -34,7 +34,7 @@ public class StudentGroupController {
 
     public ResponseEntity<List<GetStudentGroupResponse>> getStudentsGroups() {
         try {
-            List<GetStudentGroupResponse> response = studentGroupService.getStudentsGroups();
+            List<GetStudentGroupResponse> response = studentGroupService.getStudentGroups();
             return new ResponseEntity<>(response, (short) 200, null);
 
         } catch (Exception ex) {
