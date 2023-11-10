@@ -34,12 +34,10 @@ public class StudentController {
             if (!errors.isEmpty()) {
                 return new ResponseEntity<>(null, (short) 422, errors);
             }
-            try {
-                List<GetStudentResponse> response = studentService.getStudentsByGroup(request);
-                return new ResponseEntity<>(response, (short) 200, null);
-            } catch (NotFoundException ex) {
-                return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
-            }
+
+            List<GetStudentResponse> response = studentService.getStudentsByGroup(request);
+            return new ResponseEntity<>(response, (short) 200, null);
+
         } catch (Exception ex) {
             return new ResponseEntity<>(null, (short) 500, Collections.singletonList(ex.getMessage()));
         }

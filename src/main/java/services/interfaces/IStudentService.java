@@ -3,18 +3,19 @@ package services.interfaces;
 import entities.requests.students.*;
 import entities.responses.students.AddStudentResponse;
 import entities.responses.students.GetStudentResponse;
-import exceptions.service_exceptions.ServiceException;
+import exceptions.service_exceptions.NotEnoughMemoryException;
+import exceptions.service_exceptions.NotFoundException;
 
 import java.util.List;
 
 public interface IStudentService {
-    List<GetStudentResponse> getStudentsByGroup(GetStudentsByGroupRequest request) throws ServiceException;
+    List<GetStudentResponse> getStudentsByGroup(GetStudentsByGroupRequest request);
 
-    GetStudentResponse getStudentsById(GetStudentByIdRequest request) throws ServiceException;
+    GetStudentResponse getStudentsById(GetStudentByIdRequest request) throws NotFoundException;
 
-    AddStudentResponse addStudent(AddStudentRequest request) throws ServiceException;
+    AddStudentResponse addStudent(AddStudentRequest request) throws NotEnoughMemoryException;
 
-    void editStudent(EditStudentRequest request) throws ServiceException;
+    void editStudent(EditStudentRequest request) throws NotFoundException, NotEnoughMemoryException;
 
-    void deleteStudent(DeleteStudentRequest request) throws ServiceException;
+    void deleteStudent(DeleteStudentRequest request) throws NotFoundException;
 }
