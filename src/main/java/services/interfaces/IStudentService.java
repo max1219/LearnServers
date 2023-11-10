@@ -11,7 +11,7 @@ import java.util.List;
 public interface IStudentService {
     List<GetStudentResponse> getStudentsByGroup(GetStudentsByGroupRequest request);
 
-    GetStudentResponse getStudentsById(GetStudentByIdRequest request) throws NotFoundException;
+    GetStudentResponse getStudentById(GetStudentByIdRequest request) throws NotFoundException;
 
     AddStudentResponse addStudent(AddStudentRequest request) throws NotEnoughMemoryException;
 

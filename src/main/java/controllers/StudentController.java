@@ -50,7 +50,7 @@ public class StudentController {
                 return new ResponseEntity<>(null, (short) 422, errors);
             }
             try {
-                GetStudentResponse response = studentService.getStudentsById(request);
+                GetStudentResponse response = studentService.getStudentById(request);
                 return new ResponseEntity<>(response, (short) 200, null);
             } catch (NotFoundException ex) {
                 return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
