@@ -2,6 +2,7 @@ package repositories.samples.array_repositories;
 
 import entities.database.Attendance;
 import entities.database.Lesson;
+import exceptions.repository_exceptions.ImATeapotException;
 import exceptions.repository_exceptions.NotEnoughMemoryException;
 import exceptions.repository_exceptions.NotFoundException;
 import repositories.interfaces.IAttendanceRepository;
@@ -53,10 +54,14 @@ public class ArrayAttendanceRepository implements IAttendanceRepository {
     }
 
     @Override
-    public void edit(Attendance attendance) throws NotEnoughMemoryException, NotFoundException {
+    public void edit(Attendance attendance) throws NotEnoughMemoryException, NotFoundException, ImATeapotException {
         // Да, теперь я понял, что плохо спроектировал сущности. Просто надеемся, что в edit не меняется lessonId
-        if (database.attendances[(int) (long) attendance.getId()] == null) {
+        Attendance attendance1 = database.attendances[(int) (long) attendance.getId()];
+        if (attendance1 == null) {
             throw new NotFoundException();
+        }
+        if (attendance1.getLessonId() != attendance.getLessonId()) {
+            throw new ImATeapotException("Невозможно заменить lessonId в attendance");
         }
         database.attendances[(int) (long) attendance.getId()] = attendance;
     }
