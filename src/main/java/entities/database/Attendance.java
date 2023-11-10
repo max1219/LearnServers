@@ -18,7 +18,7 @@ public class Attendance {
         return id;
     }
 
-    public Long getLessonId() {
+    public long getLessonId() {
         return lessonId;
     }
 
