@@ -13,5 +13,7 @@ public interface IStudentRepository {
 
     Student getById(long id) throws NotFoundException;
 
+    Student[] getByGroup(long groupId);
+
     Student[] getAll();
 }

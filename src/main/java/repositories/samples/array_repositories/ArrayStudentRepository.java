@@ -1,5 +1,6 @@
 package repositories.samples.array_repositories;
 
+import entities.database.Lesson;
 import entities.database.Student;
 import exceptions.repository_exceptions.NotEnoughMemoryException;
 import exceptions.repository_exceptions.NotFoundException;
@@ -59,6 +60,11 @@ public class ArrayStudentRepository implements IStudentRepository {
             throw new NotFoundException();
         }
         return database.students[(int) id];
+    }
+
+    @Override
+    public Student[] getByGroup(long groupId) {
+        return Arrays.stream(database.students).filter(Objects::nonNull).filter(student -> student.getGroupId() == groupId).toArray(Student[]::new);
     }
 
     @Override
