@@ -6,13 +6,15 @@ public class GetLessonResponse {
     private final int number;
     private final long teacherId;
     private final long groupId;
+    private final Long attendanceId;
 
-    public GetLessonResponse(long id, String date, int number, long teacherId, long groupId) {
+    public GetLessonResponse(long id, String date, int number, long teacherId, long groupId, Long attendanceId) {
         this.id = id;
         this.date = date;
         this.number = number;
         this.teacherId = teacherId;
         this.groupId = groupId;
+        this.attendanceId = attendanceId;
     }
 
     public long getId() {
@@ -33,5 +35,9 @@ public class GetLessonResponse {
 
     public long getGroupId() {
         return groupId;
+    }
+
+    public Long getAttendanceId() {
+        return attendanceId;
     }
 }

@@ -1,4 +1,4 @@
-package entities.requests.attendances;
+package entities.requests.lessons;
 
 public class GetAttendanceRequest {
     private final long id;

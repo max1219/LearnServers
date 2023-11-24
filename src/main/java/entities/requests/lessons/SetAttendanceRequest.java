@@ -1,18 +1,13 @@
-package entities.requests.attendances;
+package entities.requests.lessons;
 
-public class EditAttendanceRequest {
-    private final long id;
+public class SetAttendanceRequest {
+
     private final long lessonId;
     private final long[] visitedId;
 
-    public EditAttendanceRequest(long id, long lessonId, long[] visitedId) {
-        this.id = id;
+    public SetAttendanceRequest(long lessonId, long[] visitedId) {
         this.lessonId = lessonId;
         this.visitedId = visitedId;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public long getLessonId() {

@@ -1,6 +1,6 @@
-package validators.requests.attendances;
+package validators.requests.lessons;
 
-import entities.requests.attendances.GetAttendanceRequest;
+import entities.requests.lessons.GetAttendanceRequest;
 import validators.primes.interfaces.IIdValidator;
 import validators.requests.IRequestValidator;
 
@@ -20,7 +20,7 @@ public class GetAttendanceRequestValidator implements IRequestValidator<GetAtten
         List<String> result = new ArrayList<>(1);
 
         if (!idValidator.validate(obj.getId())) {
-            result.add("Incorrect id");
+            result.add("Incorrect lesson id");
         }
 
         return result;

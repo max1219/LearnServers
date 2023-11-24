@@ -12,17 +12,12 @@ public class SimpleAttendanceRepository implements IAttendanceRepository {
     }
 
     @Override
-    public void edit(Attendance attendance) {
-        System.out.print("Edit attendance");
-    }
-
-    @Override
     public void delete(long id) {
         System.out.print("Delete attendance");
     }
 
     @Override
     public Attendance getById(long id) {
-        return new Attendance(0L, 0L, new long[]{0, 0, 0});
+        return new Attendance(0L, new long[]{0, 0, 0});
     }
 }
