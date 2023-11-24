@@ -39,7 +39,7 @@ public class StudentController {
             return new ResponseEntity<>(response, (short) 200, null);
 
         } catch (Exception ex) {
-            return new ResponseEntity<>(null, (short) 500, Collections.singletonList(ex.getMessage()));
+            return new ResponseEntity<>(null, (short) 422, Collections.singletonList(ex.getMessage()));
         }
     }
 
@@ -56,7 +56,7 @@ public class StudentController {
                 return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
             }
         } catch (Exception ex) {
-            return new ResponseEntity<>(null, (short) 500, Collections.singletonList(ex.getMessage()));
+            return new ResponseEntity<>(null, (short) 422, Collections.singletonList(ex.getMessage()));
         }
     }
 
@@ -71,7 +71,7 @@ public class StudentController {
             return new ResponseEntity<>(response, (short) 200, null);
 
         } catch (Exception ex) {
-            return new ResponseEntity<>(null, (short) 500, Collections.singletonList(ex.getMessage()));
+            return new ResponseEntity<>(null, (short) 422, Collections.singletonList(ex.getMessage()));
         }
     }
 
@@ -88,7 +88,7 @@ public class StudentController {
                 return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
             }
         } catch (Exception ex) {
-            return new ResponseEntity<>(null, (short) 500, Collections.singletonList(ex.getMessage()));
+            return new ResponseEntity<>(null, (short) 422, Collections.singletonList(ex.getMessage()));
         }
     }
 
@@ -105,7 +105,7 @@ public class StudentController {
                 return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
             }
         } catch (Exception ex) {
-            return new ResponseEntity<>(null, (short) 500, Collections.singletonList(ex.getMessage()));
+            return new ResponseEntity<>(null, (short) 422, Collections.singletonList(ex.getMessage()));
         }
     }
 }
