@@ -65,7 +65,10 @@ public class StudentGroupController {
             if (!errors.isEmpty()) {
                 return new ResponseEntity<>(null, (short) 422, errors);
             }
-            return new ResponseEntity<>(null, (short) 200, null);
+
+            AddStudentGroupResponse id = studentGroupService.addStudentGroup(request);
+            return new ResponseEntity<>(id, (short) 200, null);
+            // NotEnoughMemory тоже 422, так что без отдельного try catch
         } catch (Exception ex) {
             return new ResponseEntity<>(null, (short) 422, Collections.singletonList(ex.getMessage()));
         }
