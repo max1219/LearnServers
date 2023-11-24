@@ -5,10 +5,10 @@ public class GetStudentResponse {
     private final String lastName;
     private final String firstName;
     private final String middleName;
-    private final String groupId;
+    private final long groupId;
     private final String status;
 
-    public GetStudentResponse(long id, String lastName, String firstName, String middleName, String groupId, String status) {
+    public GetStudentResponse(long id, String lastName, String firstName, String middleName, long groupId, String status) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -33,7 +33,7 @@ public class GetStudentResponse {
         return middleName;
     }
 
-    public String getGroupId() {
+    public long getGroupId() {
         return groupId;
     }
 
