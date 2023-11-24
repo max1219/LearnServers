@@ -1,6 +1,5 @@
 package repositories.samples.array_repositories;
 
-import entities.database.Lesson;
 import entities.database.Student;
 import exceptions.repository_exceptions.NotEnoughMemoryException;
 import exceptions.repository_exceptions.NotFoundException;

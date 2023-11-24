@@ -30,7 +30,8 @@ public class SimpleStudentRepository implements IStudentRepository {
         return new Student[]{
                 new Student(0L, "A", "B", "C", 0L, "D"),
                 new Student(1L, "A1", "B1", "C1", 0L, "D1")
-        };    }
+        };
+    }
 
     @Override
     public Student[] getAll() {

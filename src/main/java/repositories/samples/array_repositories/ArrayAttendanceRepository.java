@@ -1,9 +1,7 @@
 package repositories.samples.array_repositories;
 
 import entities.database.Attendance;
-import entities.database.Lesson;
 import exceptions.repository_exceptions.NotEnoughMemoryException;
-import exceptions.repository_exceptions.NotFoundException;
 import repositories.interfaces.IAttendanceRepository;
 import repositories.interfaces.ILessonRepository;
 
@@ -45,7 +43,7 @@ public class ArrayAttendanceRepository implements IAttendanceRepository {
     }
 
     @Override
-    public Attendance getById(long id)  {
+    public Attendance getById(long id) {
         return database.attendances[(int) id];
     }
 }
