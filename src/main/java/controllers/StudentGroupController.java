@@ -50,7 +50,7 @@ public class StudentGroupController {
             }
             try {
                 GetStudentGroupResponse response = studentGroupService.getStudentGroupById(request);
-                return new ResponseEntity<>(null, (short) 200, null);
+                return new ResponseEntity<>(response, (short) 200, null);
             } catch (NotFoundException ex) {
                 return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
             }
