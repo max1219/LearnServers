@@ -5,6 +5,7 @@ public class GetLessonsByGroupRequest {
     private final String endDate;
     private final long groupId;
 
+    @java.beans.ConstructorProperties({"startDate", "endDate", "groupId"})
     public GetLessonsByGroupRequest(String startDate, String endDate, long groupId) {
         this.startDate = startDate;
         this.endDate = endDate;

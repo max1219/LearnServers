@@ -7,6 +7,7 @@ public class AddStudentRequest {
     private final long groupId;
     private final String status;
 
+    @java.beans.ConstructorProperties({"lastName", "firstName", "middleName", "groupId", "status"})
     public AddStudentRequest(String lastName, String firstName, String middleName, long groupId, String status) {
         this.lastName = lastName;
         this.firstName = firstName;

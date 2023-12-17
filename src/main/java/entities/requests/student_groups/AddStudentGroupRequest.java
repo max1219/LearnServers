@@ -3,6 +3,7 @@ package entities.requests.student_groups;
 public class AddStudentGroupRequest {
     private final String name;
 
+    @java.beans.ConstructorProperties({"name"})
     public AddStudentGroupRequest(String name) {
         this.name = name;
     }

@@ -8,6 +8,7 @@ public class EditStudentRequest {
     private final long groupId;
     private final String status;
 
+    @java.beans.ConstructorProperties({"id", "lastName", "firstName", "middleName", "groupId", "status"})
     public EditStudentRequest(long id, String lastName, String firstName, String middleName, long groupId, String status) {
         this.id = id;
         this.lastName = lastName;

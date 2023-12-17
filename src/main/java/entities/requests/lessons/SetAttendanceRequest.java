@@ -5,6 +5,7 @@ public class SetAttendanceRequest {
     private final long lessonId;
     private final long[] visitedId;
 
+    @java.beans.ConstructorProperties({"lessonId", "visitedId"})
     public SetAttendanceRequest(long lessonId, long[] visitedId) {
         this.lessonId = lessonId;
         this.visitedId = visitedId;

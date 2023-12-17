@@ -4,6 +4,7 @@ public class EditStudentGroupRequest {
     private final long id;
     private final String newName;
 
+    @java.beans.ConstructorProperties({"id", "newName"})
     public EditStudentGroupRequest(long id, String newName) {
         this.id = id;
         this.newName = newName;

@@ -7,6 +7,7 @@ public class EditLessonRequest {
     private final long teacherId;
     private final long groupId;
 
+    @java.beans.ConstructorProperties({"id", "date", "number", "teacherId", "groupId"})
     public EditLessonRequest(long id, String date, int number, long teacherId, long groupId) {
         this.id = id;
         this.date = date;

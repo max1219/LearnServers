@@ -5,6 +5,7 @@ public class AddTeacherRequest {
     private final String firstName;
     private final String middleName;
 
+    @java.beans.ConstructorProperties({"lastName", "firstName", "middleName"})
     public AddTeacherRequest(String lastName, String firstName, String middleName) {
         this.lastName = lastName;
         this.firstName = firstName;

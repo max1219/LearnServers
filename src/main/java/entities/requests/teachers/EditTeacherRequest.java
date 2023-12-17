@@ -6,6 +6,7 @@ public class EditTeacherRequest {
     private final String firstName;
     private final String middleName;
 
+    @java.beans.ConstructorProperties({"id", "lastName", "firstName", "middleName"})
     public EditTeacherRequest(long id, String lastName, String firstName, String middleName) {
         this.id = id;
         this.lastName = lastName;

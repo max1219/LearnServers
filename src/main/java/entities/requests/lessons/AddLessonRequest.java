@@ -6,6 +6,7 @@ public class AddLessonRequest {
     private final long teacherId;
     private final long groupId;
 
+    @java.beans.ConstructorProperties({"date", "number", "teacherId", "groupId"})
     public AddLessonRequest(String date, int number, long teacherId, long groupId) {
         this.date = date;
         this.number = number;
