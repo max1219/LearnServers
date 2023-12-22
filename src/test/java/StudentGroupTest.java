@@ -123,5 +123,10 @@ class StudentGroupTest {
         Assert.assertEquals(422, responseEdit.getStatusCode());
     }
 
+    @Test
+    void wrongEndPointPest() {
+        ResponseEntity<?> response = server.process("dsfgd", "dfb");
 
+        Assert.assertEquals(400, response.getStatusCode());
+    }
 }
