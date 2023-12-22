@@ -6,6 +6,7 @@ import jsonMapper.JacksonDataBindMapper;
 import junit.framework.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestClassOrder;
 import repositories.samples.array_repositories.ArrayStudentGroupRepository;
 import repositories.samples.array_repositories.Database;
 import server.Server;
@@ -128,5 +129,16 @@ class StudentGroupTest {
         ResponseEntity<?> response = server.process("dsfgd", "dfb");
 
         Assert.assertEquals(400, response.getStatusCode());
+    }
+
+    @Test
+    void notEnoughMemoryTest(){
+        server.process("addStudentGroup", "{\"name\": \"MMB\"}");
+        server.process("addStudentGroup", "{\"name\": \"MMB\"}");
+        ResponseEntity<AddStudentGroupResponse> responseGood = (ResponseEntity<AddStudentGroupResponse>) server.process("addStudentGroup", "{\"name\": \"MMB\"}");
+        ResponseEntity<AddStudentGroupResponse> responseBad = (ResponseEntity<AddStudentGroupResponse>) server.process("addStudentGroup", "{\"name\": \"MMB\"}");
+
+        Assert.assertEquals(200, responseGood.getStatusCode());
+        Assert.assertEquals(422, responseBad.getStatusCode());
     }
 }
