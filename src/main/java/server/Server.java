@@ -25,7 +25,6 @@ public class Server {
     }
 
     public ResponseEntity<?> process(String endPoint, String json) {
-        // todo try catch: json 400, other 422
         try {
             switch (endPoint) {
                 case "getStudentGroups":
@@ -86,9 +85,12 @@ public class Server {
                     break;
 
             }
-        } catch (JsonException ignored) {
-            return new ResponseEntity<Void>(null, (short) 404, new ArrayList<>(Collections.singleton("Json некорректен")));
+        } catch (JsonException e) {
+            return new ResponseEntity<Void>(null, (short) 400, new ArrayList<>(Collections.singleton("Json некорректен")));
         }
-        return new ResponseEntity<Void>(null, (short) 404, new ArrayList<>(Collections.singleton("Метод не найден")));
+        catch (Exception e) {
+            return new ResponseEntity<Void>(null, (short) 422, new ArrayList<>(Collections.singleton(e.getMessage())));
+        }
+        return new ResponseEntity<Void>(null, (short) 400, new ArrayList<>(Collections.singleton("Неверное имя метода")));
     }
 }
