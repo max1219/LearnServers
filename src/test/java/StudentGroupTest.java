@@ -1,22 +1,21 @@
-import controllers.StudentGroupController;
-import entities.responses.ResponseEntity;
-import entities.responses.student_groups.AddStudentGroupResponse;
-import entities.responses.student_groups.GetStudentGroupResponse;
-import jsonMapper.JacksonDataBindMapper;
+import org.ogr.gor.www.old.controllers.StudentGroupController;
+import org.ogr.gor.www.old.entities.responses.ResponseEntity;
+import org.ogr.gor.www.old.entities.responses.student_groups.AddStudentGroupResponse;
+import org.ogr.gor.www.old.entities.responses.student_groups.GetStudentGroupResponse;
+import org.ogr.gor.www.old.jsonMapper.JacksonDataBindMapper;
 import junit.framework.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestClassOrder;
-import repositories.samples.array_repositories.ArrayStudentGroupRepository;
-import repositories.samples.array_repositories.Database;
-import server.Server;
-import services.samples.SampleStudentGroupService;
-import validators.primes.samples.SampleIdValidator;
-import validators.primes.samples.SampleNameValidator;
-import validators.requests.student_groups.AddStudentGroupRequestValidator;
-import validators.requests.student_groups.DeleteStudentGroupRequestValidator;
-import validators.requests.student_groups.EditStudentGroupRequestValidator;
-import validators.requests.student_groups.GetStudentGroupRequestValidator;
+import org.ogr.gor.www.old.repositories.samples.array_repositories.ArrayStudentGroupRepository;
+import org.ogr.gor.www.old.repositories.samples.array_repositories.Database;
+import org.ogr.gor.www.old.server.Server;
+import org.ogr.gor.www.old.services.samples.SampleStudentGroupService;
+import org.ogr.gor.www.old.validators.primes.samples.SampleIdValidator;
+import org.ogr.gor.www.old.validators.primes.samples.SampleNameValidator;
+import org.ogr.gor.www.old.validators.requests.student_groups.AddStudentGroupRequestValidator;
+import org.ogr.gor.www.old.validators.requests.student_groups.DeleteStudentGroupRequestValidator;
+import org.ogr.gor.www.old.validators.requests.student_groups.EditStudentGroupRequestValidator;
+import org.ogr.gor.www.old.validators.requests.student_groups.GetStudentGroupRequestValidator;
 
 import java.util.List;
 
@@ -26,7 +25,7 @@ class StudentGroupTest {
 
     @BeforeEach
     void setUp() {
-        Database database = new Database(20, 20, 3, 20, 20, 20);
+        Database database = new Database();
         server = new Server(
                 new JacksonDataBindMapper(),
                 null,
