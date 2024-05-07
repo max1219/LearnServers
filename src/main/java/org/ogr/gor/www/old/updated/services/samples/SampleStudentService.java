@@ -1,4 +1,4 @@
-package org.ogr.gor.www.old.services.samples;
+package org.ogr.gor.www.old.updated.services.samples;
 
 import org.ogr.gor.www.old.entities.database.Student;
 import org.ogr.gor.www.old.entities.requests.students.*;
@@ -7,7 +7,7 @@ import org.ogr.gor.www.old.entities.responses.students.GetStudentResponse;
 import org.ogr.gor.www.old.exceptions.service_exceptions.NotEnoughMemoryException;
 import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
 import org.ogr.gor.www.old.repositories.interfaces.IStudentRepository;
-import org.ogr.gor.www.old.services.interfaces.IStudentService;
+import org.ogr.gor.www.old.updated.services.interfaces.IStudentService;
 
 import java.util.Arrays;
 import java.util.List;

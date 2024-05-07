@@ -1,21 +1,18 @@
 package org.ogr.gor.www.controllers;
 
 
-import org.ogr.gor.www.old.entities.requests.student_groups.AddStudentGroupRequest;
-import org.ogr.gor.www.old.entities.requests.student_groups.DeleteStudentGroupRequest;
-import org.ogr.gor.www.old.entities.requests.student_groups.EditStudentGroupRequest;
-import org.ogr.gor.www.old.entities.requests.student_groups.GetStudentGroupRequest;
-import org.ogr.gor.www.old.entities.responses.ResponseEntity;
-import org.ogr.gor.www.old.entities.responses.student_groups.AddStudentGroupResponse;
-import org.ogr.gor.www.old.entities.responses.student_groups.GetStudentGroupResponse;
+import org.ogr.gor.www.entities.requests.student_groups.AddStudentGroupRequest;
+import org.ogr.gor.www.entities.requests.student_groups.DeleteStudentGroupRequest;
+import org.ogr.gor.www.entities.requests.student_groups.EditStudentGroupRequest;
+import org.ogr.gor.www.entities.requests.student_groups.GetStudentGroupRequest;
+import org.ogr.gor.www.old.entities.database.StudentGroup;
 import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
-import org.ogr.gor.www.old.services.interfaces.IStudentGroupService;
+import org.ogr.gor.www.services.interfaces.IStudentGroupService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Collections;
-import java.util.List;
+
 
 // todo Вытащить заголовок соответствующий
 // todo Возвращает null в имени
@@ -30,73 +27,55 @@ public class StudentGroupController {
 
 
     @GetMapping("/studentGroups")
-    public List<GetStudentGroupResponse> getStudentsGroups() {
+    public StudentGroup[] getStudentsGroups() {
         try {
             return studentGroupService.getStudentGroups();
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "entity not found");
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
         }
     }
 
-    @GetMapping("/studentGroups/{id}")
-    public GetStudentGroupResponse getStudentGroupById(@PathVariable long id) {
+
+    @GetMapping("/studentGroups/{request}")
+    public StudentGroup getStudentGroupById(@PathVariable GetStudentGroupRequest request) {
         try {
-            return studentGroupService.getStudentGroupById(new GetStudentGroupRequest(id));
+            return studentGroupService.getStudentGroupById(request);
         } catch (NotFoundException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "entity not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "entity not found");
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
         }
     }
+    // todo controller advi(s/c)e
 
     @PostMapping("/studentGroups/add")
-    public AddStudentGroupResponse addStudentGroup(@RequestBody AddStudentGroupRequest request) {
+    public long addStudentGroup(@RequestBody AddStudentGroupRequest request) {
         try {
             return studentGroupService.addStudentGroup(request);
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "entity not found");
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
         }
     }
-/*
-    public void editStudentGroup(@RequestParam EditStudentGroupRequest request) {
+
+    @PutMapping("/studentGroups/edit")
+    public void editStudentGroup(@RequestBody EditStudentGroupRequest request) {
         try {
-            return studentGroupService.editStudentGroup(new GetStudentGroupRequest(id));
+            studentGroupService.editStudentGroup(request);
         } catch (NotFoundException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "entity not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "entity not found");
-        }
-
-        try {
-            List<String> errors = editStudentGroupRequestValidator.validate(request);
-            if (!errors.isEmpty()) {
-                return new ResponseEntity<>(null, (short) 422, errors);
-            }
-            try {
-                studentGroupService.editStudentGroup(request);
-                return new ResponseEntity<>(null, (short) 200, null);
-            } catch (NotFoundException ex) {
-                return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
-            }
-        } catch (Exception ex) {
-            return new ResponseEntity<>(null, (short) 422, Collections.singletonList(ex.getMessage()));
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
         }
     }
 
-    public ResponseEntity<Void> deleteStudentGroup(DeleteStudentGroupRequest request) {
+    @DeleteMapping("/studentGroups/delete")
+    public void deleteStudentGroup(@RequestParam DeleteStudentGroupRequest id) {
         try {
-            List<String> errors = deleteStudentGroupRequestValidator.validate(request);
-            if (!errors.isEmpty()) {
-                return new ResponseEntity<>(null, (short) 422, errors);
-            }
-            try {
-                studentGroupService.deleteStudentGroup(request);
-                return new ResponseEntity<>(null, (short) 200, null);
-            } catch (NotFoundException ex) {
-                return new ResponseEntity<>(null, (short) 404, Collections.singletonList(ex.getMessage()));
-            }
+            studentGroupService.deleteStudentGroup(id);
+        } catch (NotFoundException ex) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         } catch (Exception ex) {
-            return new ResponseEntity<>(null, (short) 422, Collections.singletonList(ex.getMessage()));
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
         }
-    }*/
+    }
 }

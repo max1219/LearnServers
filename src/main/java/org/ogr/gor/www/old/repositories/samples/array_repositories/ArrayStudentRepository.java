@@ -4,12 +4,14 @@ import org.ogr.gor.www.old.entities.database.Student;
 import org.ogr.gor.www.old.exceptions.repository_exceptions.NotEnoughMemoryException;
 import org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException;
 import org.ogr.gor.www.old.repositories.interfaces.IStudentRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Objects;
 
+@Component
 public class ArrayStudentRepository implements IStudentRepository {
     private final Database database;
     private Integer lastId;

@@ -1,11 +1,11 @@
-package org.ogr.gor.www.old.controllers;
+package org.ogr.gor.www.old.updated.controllers;
 
 import org.ogr.gor.www.old.entities.requests.students.*;
 import org.ogr.gor.www.old.entities.responses.ResponseEntity;
 import org.ogr.gor.www.old.entities.responses.students.AddStudentResponse;
 import org.ogr.gor.www.old.entities.responses.students.GetStudentResponse;
 import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
-import org.ogr.gor.www.old.services.interfaces.IStudentService;
+import org.ogr.gor.www.old.updated.services.interfaces.IStudentService;
 import org.ogr.gor.www.old.validators.requests.students.*;
 
 import java.util.Collections;

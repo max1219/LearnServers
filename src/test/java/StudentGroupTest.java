@@ -1,4 +1,4 @@
-import org.ogr.gor.www.old.controllers.StudentGroupController;
+import org.ogr.gor.www.old.updated.controllers.StudentGroupController;
 import org.ogr.gor.www.old.entities.responses.ResponseEntity;
 import org.ogr.gor.www.old.entities.responses.student_groups.AddStudentGroupResponse;
 import org.ogr.gor.www.old.entities.responses.student_groups.GetStudentGroupResponse;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.ogr.gor.www.old.repositories.samples.array_repositories.ArrayStudentGroupRepository;
 import org.ogr.gor.www.old.repositories.samples.array_repositories.Database;
 import org.ogr.gor.www.old.server.Server;
-import org.ogr.gor.www.old.services.samples.SampleStudentGroupService;
+import org.ogr.gor.www.old.updated.services.samples.SampleStudentGroupService;
 import org.ogr.gor.www.old.validators.primes.samples.SampleIdValidator;
 import org.ogr.gor.www.old.validators.primes.samples.SampleNameValidator;
 import org.ogr.gor.www.old.validators.requests.student_groups.AddStudentGroupRequestValidator;

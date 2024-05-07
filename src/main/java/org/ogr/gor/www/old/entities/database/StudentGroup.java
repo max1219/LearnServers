@@ -6,6 +6,7 @@ public class StudentGroup {
     private final Long id;
     private final String name;
 
+    @java.beans.ConstructorProperties({"id", "name"})
     public StudentGroup(Long id, String name) {
         this.id = id;
         this.name = name;

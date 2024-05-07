@@ -1,4 +1,4 @@
-package org.ogr.gor.www.old.controllers;
+package org.ogr.gor.www.old.updated.controllers;
 
 import org.ogr.gor.www.old.entities.requests.student_groups.AddStudentGroupRequest;
 import org.ogr.gor.www.old.entities.requests.student_groups.DeleteStudentGroupRequest;
@@ -8,7 +8,7 @@ import org.ogr.gor.www.old.entities.responses.ResponseEntity;
 import org.ogr.gor.www.old.entities.responses.student_groups.AddStudentGroupResponse;
 import org.ogr.gor.www.old.entities.responses.student_groups.GetStudentGroupResponse;
 import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
-import org.ogr.gor.www.old.services.interfaces.IStudentGroupService;
+import org.ogr.gor.www.old.updated.services.interfaces.IStudentGroupService;
 import org.ogr.gor.www.old.validators.requests.student_groups.AddStudentGroupRequestValidator;
 import org.ogr.gor.www.old.validators.requests.student_groups.DeleteStudentGroupRequestValidator;
 import org.ogr.gor.www.old.validators.requests.student_groups.EditStudentGroupRequestValidator;

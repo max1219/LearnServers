@@ -1,4 +1,4 @@
-package org.ogr.gor.www.old.services.interfaces;
+package org.ogr.gor.www.old.updated.services.interfaces;
 
 import org.ogr.gor.www.old.entities.responses.students.AddStudentResponse;
 import org.ogr.gor.www.old.entities.responses.students.GetStudentResponse;

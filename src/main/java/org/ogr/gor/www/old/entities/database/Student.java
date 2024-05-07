@@ -10,6 +10,7 @@ public class Student {
     private final long groupId;
     private final String status;
 
+    @java.beans.ConstructorProperties({"id", "lastName", "firstName", "middleName", "groupId", "status"})
     public Student(Long id, String lastName, String firstName, String middleName, Long groupId, String status) {
         this.id = id;
         this.lastName = lastName;

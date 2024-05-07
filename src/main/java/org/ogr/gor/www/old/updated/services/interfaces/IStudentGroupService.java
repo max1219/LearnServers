@@ -1,4 +1,4 @@
-package org.ogr.gor.www.old.services.interfaces;
+package org.ogr.gor.www.old.updated.services.interfaces;
 
 import org.ogr.gor.www.old.entities.requests.student_groups.AddStudentGroupRequest;
 import org.ogr.gor.www.old.entities.requests.student_groups.DeleteStudentGroupRequest;

@@ -1,7 +1,7 @@
 package org.ogr.gor.www.old.server;
 
-import org.ogr.gor.www.old.controllers.StudentController;
-import org.ogr.gor.www.old.controllers.StudentGroupController;
+import org.ogr.gor.www.old.updated.controllers.StudentController;
+import org.ogr.gor.www.old.updated.controllers.StudentGroupController;
 import org.ogr.gor.www.old.entities.requests.student_groups.AddStudentGroupRequest;
 import org.ogr.gor.www.old.entities.requests.student_groups.DeleteStudentGroupRequest;
 import org.ogr.gor.www.old.entities.requests.student_groups.EditStudentGroupRequest;
