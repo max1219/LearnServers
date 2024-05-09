@@ -1,8 +1,19 @@
 package org.ogr.gor.www.entities.requests.teachers;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class AddTeacherRequest {
+    @NotEmpty
+    @Size(max = 30)
     private final String lastName;
+
+    @NotEmpty
+    @Size(max = 30)
     private final String firstName;
+
+    @NotEmpty
+    @Size(max = 30)
     private final String middleName;
 
     @java.beans.ConstructorProperties({"lastName", "firstName", "middleName"})

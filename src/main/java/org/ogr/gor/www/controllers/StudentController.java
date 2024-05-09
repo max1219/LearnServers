@@ -5,11 +5,15 @@ import org.ogr.gor.www.entities.requests.students.*;
 import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
 import org.ogr.gor.www.services.interfaces.IStudentService;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
+
 
 @RestController
+@Validated
 public class StudentController {
     private final IStudentService studentService;
 
@@ -18,8 +22,8 @@ public class StudentController {
     }
 
     // todo Задуматься над переделкой под ResponseEntity для возвращения списка ошибок
-    @GetMapping("/students/fromGroup/{request}")
-    public Student[] getStudentsByGroup(@PathVariable GetStudentsByGroupRequest request) {
+    @GetMapping("/students/byGroup/{request}")
+    public Student[] getStudentsByGroup(@PathVariable @Valid GetStudentsByGroupRequest request) {
         try {
             return studentService.getStudentsByGroup(request);
         } catch (Exception ex) {
@@ -28,7 +32,7 @@ public class StudentController {
     }
 
     @GetMapping("/students/{request}")
-    public Student getStudentById(@PathVariable GetStudentByIdRequest request) {
+    public Student getStudentById(@PathVariable @Valid GetStudentByIdRequest request) {
         try {
             return studentService.getStudentById(request);
         } catch (NotFoundException ex) {
@@ -39,7 +43,7 @@ public class StudentController {
     }
 
     @PostMapping("/students/add")
-    public long addStudent(@RequestBody AddStudentRequest request) {
+    public long addStudent(@RequestBody @Valid AddStudentRequest request) {
         try {
             return studentService.addStudent(request);
         } catch (Exception ex) {
@@ -48,7 +52,7 @@ public class StudentController {
     }
 
     @PutMapping("/students/edit")
-    public void editStudent(@RequestBody EditStudentRequest request) {
+    public void editStudent(@RequestBody @Valid EditStudentRequest request) {
         try {
             studentService.editStudent(request);
         } catch (NotFoundException ex) {
@@ -59,7 +63,7 @@ public class StudentController {
     }
 
     @DeleteMapping("/students/delete")
-    public void deleteStudent(@RequestParam DeleteStudentRequest id) {
+    public void deleteStudent(@RequestParam @Valid DeleteStudentRequest id) {
         try {
             studentService.deleteStudent(id);
         } catch (NotFoundException ex) {

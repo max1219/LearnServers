@@ -1,6 +1,9 @@
 package org.ogr.gor.www.entities.requests.subjects;
 
+import javax.validation.constraints.PositiveOrZero;
+
 public class DeleteSubjectRequest {
+    @PositiveOrZero
     private final long id;
 
     @java.beans.ConstructorProperties({"id"})

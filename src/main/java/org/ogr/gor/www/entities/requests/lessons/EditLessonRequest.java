@@ -1,10 +1,25 @@
 package org.ogr.gor.www.entities.requests.lessons;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
+
 public class EditLessonRequest {
+    @PositiveOrZero
     private final long id;
+
+    @NotNull
+    @Pattern(regexp = "^\\d\\d[._\\- ]\\d\\d[._\\- ]\\d\\d\\d\\d$")
     private final String date;
+
+    @Positive
     private final int number;
+
+    @PositiveOrZero
     private final long teacherId;
+
+    @PositiveOrZero
     private final long groupId;
 
     @java.beans.ConstructorProperties({"id", "date", "number", "teacherId", "groupId"})

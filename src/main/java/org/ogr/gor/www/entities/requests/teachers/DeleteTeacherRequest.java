@@ -1,6 +1,9 @@
 package org.ogr.gor.www.entities.requests.teachers;
 
+import javax.validation.constraints.PositiveOrZero;
+
 public class DeleteTeacherRequest {
+    @PositiveOrZero
     private final long id;
 
     @java.beans.ConstructorProperties({"id"})

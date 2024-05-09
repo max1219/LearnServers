@@ -1,10 +1,27 @@
 package org.ogr.gor.www.entities.requests.students;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
+
 public class AddStudentRequest {
+    @NotEmpty
+    @Size(max = 30)
     private final String lastName;
+
+    @NotEmpty
+    @Size(max = 30)
     private final String firstName;
+
+    @NotEmpty
+    @Size(max = 30)
     private final String middleName;
+
+    @PositiveOrZero
     private final long groupId;
+
+    @NotEmpty
+    @Size(max = 30)
     private final String status;
 
     @java.beans.ConstructorProperties({"lastName", "firstName", "middleName", "groupId", "status"})

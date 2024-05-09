@@ -1,6 +1,9 @@
 package org.ogr.gor.www.entities.requests.students;
 
+import javax.validation.constraints.PositiveOrZero;
+
 public class GetStudentsByGroupRequest {
+    @PositiveOrZero
     private final long id;
 
     @java.beans.ConstructorProperties({"id"})

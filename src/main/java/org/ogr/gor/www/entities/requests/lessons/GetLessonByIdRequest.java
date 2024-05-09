@@ -1,6 +1,9 @@
 package org.ogr.gor.www.entities.requests.lessons;
 
+import javax.validation.constraints.PositiveOrZero;
+
 public class GetLessonByIdRequest {
+    @PositiveOrZero
     private final long id;
 
     @java.beans.ConstructorProperties({"id"})
