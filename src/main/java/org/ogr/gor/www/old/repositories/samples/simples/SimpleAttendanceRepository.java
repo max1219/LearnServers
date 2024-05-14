@@ -1,6 +1,6 @@
 package org.ogr.gor.www.old.repositories.samples.simples;
 
-import org.ogr.gor.www.old.entities.database.Attendance;
+import org.ogr.gor.www.old.updated.entities.database.Attendance;
 import org.ogr.gor.www.old.repositories.interfaces.IAttendanceRepository;
 
 public class SimpleAttendanceRepository implements IAttendanceRepository {

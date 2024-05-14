@@ -1,13 +1,12 @@
-package org.ogr.gor.www.old.entities.database;
+package org.ogr.gor.www.entities.database;
 
 import java.util.Objects;
 
-public class StudentGroup {
+public class Subject {
     private final Long id;
     private final String name;
 
-    @java.beans.ConstructorProperties({"id", "name"})
-    public StudentGroup(Long id, String name) {
+    public Subject(Long id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -24,8 +23,8 @@ public class StudentGroup {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StudentGroup that = (StudentGroup) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name);
+        Subject subject = (Subject) o;
+        return Objects.equals(id, subject.id) && Objects.equals(name, subject.name);
     }
 
     @Override

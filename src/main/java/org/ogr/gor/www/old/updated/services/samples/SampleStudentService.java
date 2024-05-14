@@ -1,6 +1,6 @@
 package org.ogr.gor.www.old.updated.services.samples;
 
-import org.ogr.gor.www.old.entities.database.Student;
+import org.ogr.gor.www.old.updated.entities.database.Student;
 import org.ogr.gor.www.old.entities.requests.students.*;
 import org.ogr.gor.www.old.entities.responses.students.AddStudentResponse;
 import org.ogr.gor.www.old.entities.responses.students.GetStudentResponse;

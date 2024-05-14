@@ -1,6 +1,6 @@
 package org.ogr.gor.www.old.repositories.samples.simples;
 
-import org.ogr.gor.www.old.entities.database.Lesson;
+import org.ogr.gor.www.old.updated.entities.database.Lesson;
 import org.ogr.gor.www.old.repositories.interfaces.ILessonRepository;
 
 public class SimpleLessonRepository implements ILessonRepository {

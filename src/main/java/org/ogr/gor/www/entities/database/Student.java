@@ -1,4 +1,4 @@
-package org.ogr.gor.www.old.entities.database;
+package org.ogr.gor.www.entities.database;
 
 import java.util.Objects;
 

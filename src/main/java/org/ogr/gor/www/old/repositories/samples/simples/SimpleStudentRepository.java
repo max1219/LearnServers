@@ -1,6 +1,6 @@
 package org.ogr.gor.www.old.repositories.samples.simples;
 
-import org.ogr.gor.www.old.entities.database.Student;
+import org.ogr.gor.www.old.updated.entities.database.Student;
 import org.ogr.gor.www.old.repositories.interfaces.IStudentRepository;
 
 public class SimpleStudentRepository implements IStudentRepository {

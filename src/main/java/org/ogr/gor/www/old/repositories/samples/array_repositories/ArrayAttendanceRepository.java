@@ -1,6 +1,6 @@
 package org.ogr.gor.www.old.repositories.samples.array_repositories;
 
-import org.ogr.gor.www.old.entities.database.Attendance;
+import org.ogr.gor.www.old.updated.entities.database.Attendance;
 import org.ogr.gor.www.old.exceptions.repository_exceptions.NotEnoughMemoryException;
 import org.ogr.gor.www.old.repositories.interfaces.IAttendanceRepository;
 import org.ogr.gor.www.old.repositories.interfaces.ILessonRepository;

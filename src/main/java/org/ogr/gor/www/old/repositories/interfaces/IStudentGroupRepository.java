@@ -1,6 +1,6 @@
 package org.ogr.gor.www.old.repositories.interfaces;
 
-import org.ogr.gor.www.old.entities.database.StudentGroup;
+import org.ogr.gor.www.old.updated.entities.database.StudentGroup;
 import org.ogr.gor.www.old.exceptions.repository_exceptions.NotEnoughMemoryException;
 import org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException;
 

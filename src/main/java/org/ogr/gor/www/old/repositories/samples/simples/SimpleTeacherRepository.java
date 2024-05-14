@@ -1,6 +1,6 @@
 package org.ogr.gor.www.old.repositories.samples.simples;
 
-import org.ogr.gor.www.old.entities.database.Teacher;
+import org.ogr.gor.www.old.updated.entities.database.Teacher;
 import org.ogr.gor.www.old.repositories.interfaces.ITeacherRepository;
 
 public class SimpleTeacherRepository implements ITeacherRepository {

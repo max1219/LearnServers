@@ -1,6 +1,6 @@
 package org.ogr.gor.www.old.updated.services.samples;
 
-import org.ogr.gor.www.old.entities.database.StudentGroup;
+import org.ogr.gor.www.old.updated.entities.database.StudentGroup;
 import org.ogr.gor.www.old.entities.requests.student_groups.AddStudentGroupRequest;
 import org.ogr.gor.www.old.entities.requests.student_groups.DeleteStudentGroupRequest;
 import org.ogr.gor.www.old.entities.requests.student_groups.EditStudentGroupRequest;

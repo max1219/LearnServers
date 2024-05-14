@@ -1,6 +1,6 @@
 package org.ogr.gor.www.old.repositories.samples.simples;
 
-import org.ogr.gor.www.old.entities.database.Subject;
+import org.ogr.gor.www.old.updated.entities.database.Subject;
 import org.ogr.gor.www.old.repositories.interfaces.ISubjectRepository;
 
 public class SimpleSubjectRepository implements ISubjectRepository {
