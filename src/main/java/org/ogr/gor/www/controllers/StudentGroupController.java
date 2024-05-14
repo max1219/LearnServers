@@ -45,9 +45,9 @@ public class StudentGroupController {
         try {
             return studentGroupService.getStudentGroupById(request);
         } catch (NotFoundException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, ex.getMessage());
         }
     }
     // todo controller advi(s/c)e
@@ -57,7 +57,7 @@ public class StudentGroupController {
         try {
             return studentGroupService.addStudentGroup(request);
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, ex.getMessage());
         }
     }
 
@@ -66,9 +66,9 @@ public class StudentGroupController {
         try {
             studentGroupService.editStudentGroup(request);
         } catch (NotFoundException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, ex.getMessage());
         }
     }
 
@@ -77,9 +77,9 @@ public class StudentGroupController {
         try {
             studentGroupService.deleteStudentGroup(id);
         } catch (NotFoundException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, ex.getMessage());
         }
     }
 }

@@ -27,7 +27,7 @@ public class StudentController {
         try {
             return studentService.getStudentsByGroup(request);
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, ex.getMessage());
         }
     }
 
@@ -36,9 +36,9 @@ public class StudentController {
         try {
             return studentService.getStudentById(request);
         } catch (NotFoundException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, ex.getMessage());
         }
     }
 
@@ -47,7 +47,7 @@ public class StudentController {
         try {
             return studentService.addStudent(request);
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, ex.getMessage());
         }
     }
 
@@ -56,9 +56,9 @@ public class StudentController {
         try {
             studentService.editStudent(request);
         } catch (NotFoundException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, ex.getMessage());
         }
     }
 
@@ -67,9 +67,9 @@ public class StudentController {
         try {
             studentService.deleteStudent(id);
         } catch (NotFoundException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, ex.getMessage());
         }
     }
 }
