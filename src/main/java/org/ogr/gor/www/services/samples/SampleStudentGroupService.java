@@ -5,10 +5,10 @@ import org.ogr.gor.www.entities.requests.student_groups.DeleteStudentGroupReques
 import org.ogr.gor.www.entities.requests.student_groups.EditStudentGroupRequest;
 import org.ogr.gor.www.entities.requests.student_groups.GetStudentGroupRequest;
 import org.ogr.gor.www.services.interfaces.IStudentGroupService;
-import org.ogr.gor.www.old.updated.entities.database.StudentGroup;
+import org.ogr.gor.www.entities.database.StudentGroup;
 import org.ogr.gor.www.old.exceptions.service_exceptions.NotEnoughMemoryException;
 import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
-import org.ogr.gor.www.old.repositories.interfaces.IStudentGroupRepository;
+import org.ogr.gor.www.repositories.interfaces.IStudentGroupRepository;
 import org.springframework.stereotype.Component;
 
 

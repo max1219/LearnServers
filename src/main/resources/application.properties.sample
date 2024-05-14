@@ -1,0 +1,7 @@
+spring.datasource.url=jdbc:postgresql://localhost:port/name
+spring.datasource.username=us_name
+spring.datasource.password=pass
+
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.database=postgresql
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQL10Dialect

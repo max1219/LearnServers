@@ -1,6 +1,5 @@
 package org.ogr.gor.www.old.repositories.samples.array_repositories;
 
-import org.ogr.gor.www.old.entities.database.*;
 import org.ogr.gor.www.old.updated.entities.database.*;
 import org.springframework.stereotype.Component;
 
