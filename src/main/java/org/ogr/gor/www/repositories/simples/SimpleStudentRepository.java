@@ -5,6 +5,7 @@ import org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException;
 import org.ogr.gor.www.repositories.interfaces.IStudentRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
@@ -12,6 +13,14 @@ import java.util.Objects;
 @Component
 public class SimpleStudentRepository implements IStudentRepository {
     private final JdbcTemplate jdbcTemplate;
+
+    private final RowMapper<Student> rowMapper = (resultSet, i) -> new Student(
+            resultSet.getLong("id"),
+            resultSet.getString("lastname"),
+            resultSet.getString("firstname"),
+            resultSet.getString("middlename"),
+            resultSet.getLong("group_id"),
+            resultSet.getString("status"));
 
     public SimpleStudentRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -54,13 +63,7 @@ public class SimpleStudentRepository implements IStudentRepository {
             result = jdbcTemplate.queryForObject(
                     "SELECT id, lastname, firstname, middlename, status, group_id " +
                             "FROM student WHERE id = ?",
-                    (resultSet, rowNum) -> new Student(
-                            resultSet.getLong("id"),
-                            resultSet.getString("lastname"),
-                            resultSet.getString("firstname"),
-                            resultSet.getString("middlename"),
-                            resultSet.getLong("group_id"),
-                            resultSet.getString("status"))
+                    rowMapper
                     , id);
         } catch (EmptyResultDataAccessException e) {
             throw new NotFoundException();
@@ -73,13 +76,7 @@ public class SimpleStudentRepository implements IStudentRepository {
         return jdbcTemplate.query(
                         "SELECT id, lastname, firstname, middlename, status, group_id " +
                                 "FROM student WHERE group_id = ?",
-                        (resultSet, rowNum) -> new Student(
-                                resultSet.getLong("id"),
-                                resultSet.getString("lastname"),
-                                resultSet.getString("firstname"),
-                                resultSet.getString("middlename"),
-                                resultSet.getLong("group_id"),
-                                resultSet.getString("status"))
+                        rowMapper
                         , groupId)
                 .toArray(new Student[0]);
     }
@@ -89,13 +86,7 @@ public class SimpleStudentRepository implements IStudentRepository {
         return jdbcTemplate.query(
                         "SELECT id, lastname, firstname, middlename, status, group_id " +
                                 "FROM student",
-                        (resultSet, rowNum) -> new Student(
-                                resultSet.getLong("id"),
-                                resultSet.getString("lastname"),
-                                resultSet.getString("firstname"),
-                                resultSet.getString("middlename"),
-                                resultSet.getLong("group_id"),
-                                resultSet.getString("status")))
+                        rowMapper)
                 .toArray(new Student[0]);
     }
 }

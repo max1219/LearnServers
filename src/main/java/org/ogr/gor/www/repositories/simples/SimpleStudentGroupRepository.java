@@ -5,13 +5,19 @@ import org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException;
 import org.ogr.gor.www.repositories.interfaces.IStudentGroupRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 
 
 @Component
 public class SimpleStudentGroupRepository implements IStudentGroupRepository {
     private final JdbcTemplate jdbcTemplate;
+    private final RowMapper<StudentGroup> rowMapper = (resultSet, i) -> new StudentGroup(
+            resultSet.getLong("id"), resultSet.getString("group_name"));
 
     public SimpleStudentGroupRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -46,11 +52,8 @@ public class SimpleStudentGroupRepository implements IStudentGroupRepository {
         StudentGroup result;
         try {
             result = jdbcTemplate.queryForObject("SELECT id, group_name FROM student_group WHERE id = ?",
-                    (resultSet, rowNum) -> new StudentGroup(
-                            resultSet.getLong("id"), resultSet.getString("group_name"))
-                    , id);
-        }
-        catch (EmptyResultDataAccessException e){
+                    rowMapper, id);
+        } catch (EmptyResultDataAccessException e) {
             throw new NotFoundException();
         }
         return result;
@@ -59,8 +62,7 @@ public class SimpleStudentGroupRepository implements IStudentGroupRepository {
     @Override
     public StudentGroup[] getAll() {
         return jdbcTemplate.query("SELECT id, group_name FROM student_group",
-                        (resultSet, rowNum) -> new StudentGroup(
-                                resultSet.getLong("id"), resultSet.getString("group_name")))
+                        rowMapper)
                 .toArray(new StudentGroup[0]);
     }
 }
