@@ -1,10 +1,10 @@
 package org.ogr.gor.www.services.samples;
 
 import org.ogr.gor.www.entities.requests.students.*;
-import org.ogr.gor.www.old.updated.entities.database.Student;
+import org.ogr.gor.www.entities.database.Student;
 import org.ogr.gor.www.old.exceptions.service_exceptions.NotEnoughMemoryException;
 import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
-import org.ogr.gor.www.old.repositories.interfaces.IStudentRepository;
+import org.ogr.gor.www.repositories.interfaces.IStudentRepository;
 import org.ogr.gor.www.services.interfaces.IStudentService;
 import org.springframework.stereotype.Component;
 
