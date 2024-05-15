@@ -21,14 +21,14 @@ public class SimpleStudentRepository implements IStudentRepository {
     public long add(Student student) {
         return Objects.requireNonNull(jdbcTemplate.queryForObject(
                 "INSERT INTO student (lastname, firstname, middlename, status, group_id) VALUES (?, ?, ?, ?, ?) " +
-                        "RETURNING student_id", Long.class,
+                        "RETURNING id", Long.class,
                 student.getLastName(), student.getFirstName(), student.getMiddleName(),
                 student.getStatus(), student.getGroupId()));
     }
 
     @Override
     public void delete(long id) throws NotFoundException {
-        int affected = jdbcTemplate.update("DELETE FROM student WHERE student_id = ?", id);
+        int affected = jdbcTemplate.update("DELETE FROM student WHERE id = ?", id);
         if (affected == 0) {
             throw new NotFoundException();
         }
@@ -39,7 +39,7 @@ public class SimpleStudentRepository implements IStudentRepository {
         int affected = jdbcTemplate.update(
                 "UPDATE student SET " +
                         "lastname = ?, firstname = ?, middlename = ?, status = ?, group_id = ? " +
-                        "WHERE student_id = ?",
+                        "WHERE id = ?",
                 student.getLastName(), student.getFirstName(), student.getMiddleName(),
                 student.getStatus(), student.getGroupId(), student.getId());
         if (affected == 0) {
@@ -52,10 +52,10 @@ public class SimpleStudentRepository implements IStudentRepository {
         Student result;
         try {
             result = jdbcTemplate.queryForObject(
-                    "SELECT student_id, lastname, firstname, middlename, status, group_id " +
-                            "FROM student WHERE student_id = ?",
+                    "SELECT id, lastname, firstname, middlename, status, group_id " +
+                            "FROM student WHERE id = ?",
                     (resultSet, rowNum) -> new Student(
-                            resultSet.getLong("student_id"),
+                            resultSet.getLong("id"),
                             resultSet.getString("lastname"),
                             resultSet.getString("firstname"),
                             resultSet.getString("middlename"),
@@ -71,10 +71,10 @@ public class SimpleStudentRepository implements IStudentRepository {
     @Override
     public Student[] getByGroup(long groupId) {
         return jdbcTemplate.query(
-                        "SELECT student_id, lastname, firstname, middlename, status, group_id " +
+                        "SELECT id, lastname, firstname, middlename, status, group_id " +
                                 "FROM student WHERE group_id = ?",
                         (resultSet, rowNum) -> new Student(
-                                resultSet.getLong("student_id"),
+                                resultSet.getLong("id"),
                                 resultSet.getString("lastname"),
                                 resultSet.getString("firstname"),
                                 resultSet.getString("middlename"),
@@ -87,10 +87,10 @@ public class SimpleStudentRepository implements IStudentRepository {
     @Override
     public Student[] getAll() {
         return jdbcTemplate.query(
-                        "SELECT student_id, lastname, firstname, middlename, status, group_id " +
+                        "SELECT id, lastname, firstname, middlename, status, group_id " +
                                 "FROM student",
                         (resultSet, rowNum) -> new Student(
-                                resultSet.getLong("student_id"),
+                                resultSet.getLong("id"),
                                 resultSet.getString("lastname"),
                                 resultSet.getString("firstname"),
                                 resultSet.getString("middlename"),

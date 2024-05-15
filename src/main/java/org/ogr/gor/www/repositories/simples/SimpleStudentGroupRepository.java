@@ -6,9 +6,6 @@ import org.ogr.gor.www.repositories.interfaces.IStudentGroupRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-
-import java.sql.ResultSet;
-import java.util.List;
 import java.util.Objects;
 
 
@@ -24,12 +21,12 @@ public class SimpleStudentGroupRepository implements IStudentGroupRepository {
     @Override
     public long add(StudentGroup group) {
         return Objects.requireNonNull(jdbcTemplate.queryForObject(
-                "INSERT INTO student_group (group_name) VALUES (?) RETURNING group_id", Long.class, group.getName()));
+                "INSERT INTO student_group (group_name) VALUES (?) RETURNING id", Long.class, group.getName()));
     }
 
     @Override
     public void delete(long id) throws NotFoundException {
-        int affected = jdbcTemplate.update("DELETE FROM student_group WHERE group_id = ?", id);
+        int affected = jdbcTemplate.update("DELETE FROM student_group WHERE id = ?", id);
         if (affected == 0) {
             throw new NotFoundException();
         }
@@ -38,7 +35,7 @@ public class SimpleStudentGroupRepository implements IStudentGroupRepository {
     @Override
     public void edit(StudentGroup group) throws NotFoundException {
         int affected = jdbcTemplate.update(
-                "UPDATE student_group SET group_name = ? WHERE group_id = ?", group.getName(), group.getId());
+                "UPDATE student_group SET group_name = ? WHERE id = ?", group.getName(), group.getId());
         if (affected == 0) {
             throw new NotFoundException();
         }
@@ -48,9 +45,9 @@ public class SimpleStudentGroupRepository implements IStudentGroupRepository {
     public StudentGroup getById(long id) throws NotFoundException {
         StudentGroup result;
         try {
-            result = jdbcTemplate.queryForObject("SELECT group_id, group_name FROM student_group WHERE group_id = ?",
+            result = jdbcTemplate.queryForObject("SELECT id, group_name FROM student_group WHERE id = ?",
                     (resultSet, rowNum) -> new StudentGroup(
-                            resultSet.getLong("group_id"), resultSet.getString("group_name"))
+                            resultSet.getLong("id"), resultSet.getString("group_name"))
                     , id);
         }
         catch (EmptyResultDataAccessException e){
@@ -61,9 +58,9 @@ public class SimpleStudentGroupRepository implements IStudentGroupRepository {
 
     @Override
     public StudentGroup[] getAll() {
-        return jdbcTemplate.query("SELECT group_id, group_name FROM student_group",
+        return jdbcTemplate.query("SELECT id, group_name FROM student_group",
                         (resultSet, rowNum) -> new StudentGroup(
-                                resultSet.getLong("group_id"), resultSet.getString("group_name")))
+                                resultSet.getLong("id"), resultSet.getString("group_name")))
                 .toArray(new StudentGroup[0]);
     }
 }
