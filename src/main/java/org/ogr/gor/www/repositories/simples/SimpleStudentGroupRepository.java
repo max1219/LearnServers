@@ -8,8 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Objects;
 
 
@@ -49,14 +47,12 @@ public class SimpleStudentGroupRepository implements IStudentGroupRepository {
 
     @Override
     public StudentGroup getById(long id) throws NotFoundException {
-        StudentGroup result;
         try {
-            result = jdbcTemplate.queryForObject("SELECT id, group_name FROM student_group WHERE id = ?",
+            return jdbcTemplate.queryForObject("SELECT id, group_name FROM student_group WHERE id = ?",
                     rowMapper, id);
         } catch (EmptyResultDataAccessException e) {
             throw new NotFoundException();
         }
-        return result;
     }
 
     @Override

@@ -58,9 +58,8 @@ public class SimpleStudentRepository implements IStudentRepository {
 
     @Override
     public Student getById(long id) throws NotFoundException {
-        Student result;
         try {
-            result = jdbcTemplate.queryForObject(
+            return jdbcTemplate.queryForObject(
                     "SELECT id, lastname, firstname, middlename, status, group_id " +
                             "FROM student WHERE id = ?",
                     rowMapper
@@ -68,7 +67,6 @@ public class SimpleStudentRepository implements IStudentRepository {
         } catch (EmptyResultDataAccessException e) {
             throw new NotFoundException();
         }
-        return result;
     }
 
     @Override
