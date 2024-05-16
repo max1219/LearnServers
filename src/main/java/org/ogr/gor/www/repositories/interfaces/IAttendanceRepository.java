@@ -1,12 +1,13 @@
 package org.ogr.gor.www.repositories.interfaces;
 
 import org.ogr.gor.www.old.exceptions.repository_exceptions.NotEnoughMemoryException;
-import org.ogr.gor.www.old.updated.entities.database.Attendance;
+import org.ogr.gor.www.entities.database.Attendance;
+import org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException;
 
 public interface IAttendanceRepository {
-    long add(Attendance attendance) throws NotEnoughMemoryException;
+    void add(Attendance attendance) throws NotEnoughMemoryException;
 
-    void delete(long id);
+    void delete(long id) throws NotFoundException;
 
     Attendance getById(long id);
 
