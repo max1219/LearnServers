@@ -2,8 +2,8 @@ package org.ogr.gor.www.services.samples;
 
 import org.ogr.gor.www.entities.requests.students.*;
 import org.ogr.gor.www.entities.database.Student;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotEnoughMemoryException;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
+import org.ogr.gor.www.exceptions.repository_exceptions.NotEnoughMemoryException;
+import org.ogr.gor.www.exceptions.repository_exceptions.NotFoundException;
 import org.ogr.gor.www.repositories.interfaces.IStudentRepository;
 import org.ogr.gor.www.services.interfaces.IStudentService;
 import org.springframework.stereotype.Component;
@@ -22,16 +22,16 @@ public class SampleStudentService implements IStudentService {
     }
 
     @Override
-    public Student getStudentById(GetStudentByIdRequest request) throws NotFoundException {
+    public Student getStudentById(GetStudentByIdRequest request) throws org.ogr.gor.www.exceptions.service_exceptions.NotFoundException {
         try {
             return repository.getById(request.getId());
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException e) {
-            throw new NotFoundException(e);
+        } catch (NotFoundException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotFoundException(e);
         }
     }
 
     @Override
-    public long addStudent(AddStudentRequest request) throws NotEnoughMemoryException {
+    public long addStudent(AddStudentRequest request) throws org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException {
         try {
             return repository.add(
                     new Student(null,
@@ -40,13 +40,13 @@ public class SampleStudentService implements IStudentService {
                             request.getMiddleName(),
                             request.getGroupId(),
                             request.getStatus()));
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotEnoughMemoryException e) {
-            throw new NotEnoughMemoryException(e);
+        } catch (NotEnoughMemoryException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException(e);
         }
     }
 
     @Override
-    public void editStudent(EditStudentRequest request) throws NotFoundException, NotEnoughMemoryException {
+    public void editStudent(EditStudentRequest request) throws org.ogr.gor.www.exceptions.service_exceptions.NotFoundException, org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException {
         try {
             repository.edit(
                     new Student(request.getId(),
@@ -55,19 +55,19 @@ public class SampleStudentService implements IStudentService {
                             request.getMiddleName(),
                             request.getGroupId(),
                             request.getStatus()));
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotEnoughMemoryException e) {
-            throw new NotEnoughMemoryException(e);
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException e) {
-            throw new NotFoundException(e);
+        } catch (NotEnoughMemoryException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException(e);
+        } catch (NotFoundException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotFoundException(e);
         }
     }
 
     @Override
-    public void deleteStudent(DeleteStudentRequest request) throws NotFoundException {
+    public void deleteStudent(DeleteStudentRequest request) throws org.ogr.gor.www.exceptions.service_exceptions.NotFoundException {
         try {
             repository.delete(request.getId());
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException e) {
-            throw new NotFoundException(e);
+        } catch (NotFoundException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotFoundException(e);
         }
     }
 }

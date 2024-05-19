@@ -2,7 +2,7 @@ package org.ogr.gor.www.controllers;
 
 import org.ogr.gor.www.entities.database.Student;
 import org.ogr.gor.www.entities.requests.students.*;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
+import org.ogr.gor.www.exceptions.service_exceptions.NotFoundException;
 import org.ogr.gor.www.services.interfaces.IStudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;

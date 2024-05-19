@@ -1,14 +1,9 @@
 package org.ogr.gor.www.services.interfaces;
 
 import org.ogr.gor.www.entities.database.Lesson;
-import org.ogr.gor.www.entities.database.Teacher;
 import org.ogr.gor.www.entities.requests.lessons.*;
-import org.ogr.gor.www.entities.requests.teachers.AddTeacherRequest;
-import org.ogr.gor.www.entities.requests.teachers.DeleteTeacherRequest;
-import org.ogr.gor.www.entities.requests.teachers.EditTeacherRequest;
-import org.ogr.gor.www.entities.requests.teachers.GetTeacherByIdRequest;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotEnoughMemoryException;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
+import org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException;
+import org.ogr.gor.www.exceptions.service_exceptions.NotFoundException;
 
 public interface ILessonService {
     Lesson[] getLessonsByGroup(GetLessonsByGroupRequest request);

@@ -2,8 +2,8 @@ package org.ogr.gor.www.services.interfaces;
 
 import org.ogr.gor.www.entities.requests.students.*;
 import org.ogr.gor.www.entities.database.Student;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotEnoughMemoryException;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
+import org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException;
+import org.ogr.gor.www.exceptions.service_exceptions.NotFoundException;
 
 public interface IStudentService {
     Student[] getStudentsByGroup(GetStudentsByGroupRequest request);

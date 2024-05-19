@@ -4,8 +4,8 @@ import org.ogr.gor.www.entities.database.Attendance;
 import org.ogr.gor.www.entities.requests.lessons.DeleteAttendanceRequest;
 import org.ogr.gor.www.entities.requests.lessons.GetAttendanceRequest;
 import org.ogr.gor.www.entities.requests.lessons.SetAttendanceRequest;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotEnoughMemoryException;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
+import org.ogr.gor.www.exceptions.repository_exceptions.NotEnoughMemoryException;
+import org.ogr.gor.www.exceptions.repository_exceptions.NotFoundException;
 import org.ogr.gor.www.repositories.interfaces.IAttendanceRepository;
 import org.ogr.gor.www.services.interfaces.IAttendanceService;
 import org.springframework.stereotype.Component;
@@ -26,21 +26,21 @@ public class SampleAttendanceService implements IAttendanceService {
     }
 
     @Override
-    public void addAttendance(SetAttendanceRequest request) throws NotEnoughMemoryException {
+    public void addAttendance(SetAttendanceRequest request) throws org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException {
         try {
             repository.add(new Attendance(
                     request.getLessonId(), request.getVisitedId().stream().mapToLong(value -> value).toArray()));
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotEnoughMemoryException e) {
-            throw new NotEnoughMemoryException(e);
+        } catch (NotEnoughMemoryException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException(e);
         }
     }
 
     @Override
-    public void deleteAttendance(DeleteAttendanceRequest request) throws NotFoundException {
+    public void deleteAttendance(DeleteAttendanceRequest request) throws org.ogr.gor.www.exceptions.service_exceptions.NotFoundException {
         try {
             repository.delete(request.getId());
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException e) {
-            throw new NotFoundException(e);
+        } catch (NotFoundException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotFoundException(e);
         }
     }
 }

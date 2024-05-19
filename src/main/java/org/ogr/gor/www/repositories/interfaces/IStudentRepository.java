@@ -1,7 +1,7 @@
 package org.ogr.gor.www.repositories.interfaces;
 
-import org.ogr.gor.www.old.exceptions.repository_exceptions.NotEnoughMemoryException;
-import org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException;
+import org.ogr.gor.www.exceptions.repository_exceptions.NotEnoughMemoryException;
+import org.ogr.gor.www.exceptions.repository_exceptions.NotFoundException;
 import org.ogr.gor.www.entities.database.Student;
 
 public interface IStudentRepository {

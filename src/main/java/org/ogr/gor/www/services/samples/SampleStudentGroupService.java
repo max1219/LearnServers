@@ -4,10 +4,10 @@ import org.ogr.gor.www.entities.requests.student_groups.AddStudentGroupRequest;
 import org.ogr.gor.www.entities.requests.student_groups.DeleteStudentGroupRequest;
 import org.ogr.gor.www.entities.requests.student_groups.EditStudentGroupRequest;
 import org.ogr.gor.www.entities.requests.student_groups.GetStudentGroupRequest;
+import org.ogr.gor.www.exceptions.repository_exceptions.NotEnoughMemoryException;
+import org.ogr.gor.www.exceptions.repository_exceptions.NotFoundException;
 import org.ogr.gor.www.services.interfaces.IStudentGroupService;
 import org.ogr.gor.www.entities.database.StudentGroup;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotEnoughMemoryException;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
 import org.ogr.gor.www.repositories.interfaces.IStudentGroupRepository;
 import org.springframework.stereotype.Component;
 
@@ -26,41 +26,41 @@ public class SampleStudentGroupService implements IStudentGroupService {
     }
 
     @Override
-    public StudentGroup getStudentGroupById(GetStudentGroupRequest request) throws NotFoundException {
+    public StudentGroup getStudentGroupById(GetStudentGroupRequest request) throws org.ogr.gor.www.exceptions.service_exceptions.NotFoundException {
         try {
             return repository.getById(request.getId());
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException e) {
-            throw new NotFoundException(e);
+        } catch (NotFoundException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotFoundException(e);
         }
     }
 
     @Override
-    public long addStudentGroup(AddStudentGroupRequest request) throws NotEnoughMemoryException {
+    public long addStudentGroup(AddStudentGroupRequest request) throws org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException {
         try{
             return repository.add(new StudentGroup(null, request.getName()));
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotEnoughMemoryException e) {
-            throw new NotEnoughMemoryException(e);
+        } catch (NotEnoughMemoryException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException(e);
         }
     }
 
     @Override
-    public void editStudentGroup(EditStudentGroupRequest request) throws NotFoundException, NotEnoughMemoryException {
+    public void editStudentGroup(EditStudentGroupRequest request) throws org.ogr.gor.www.exceptions.service_exceptions.NotFoundException, org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException {
         try {
             repository.edit(new StudentGroup(request.getId(), request.getName()));
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotEnoughMemoryException e) {
-            throw new NotEnoughMemoryException(e);
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException e) {
-            throw new NotFoundException(e);
+        } catch (NotEnoughMemoryException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException(e);
+        } catch (NotFoundException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotFoundException(e);
         }
 
     }
 
     @Override
-    public void deleteStudentGroup(DeleteStudentGroupRequest request) throws NotFoundException {
+    public void deleteStudentGroup(DeleteStudentGroupRequest request) throws org.ogr.gor.www.exceptions.service_exceptions.NotFoundException {
         try{
             repository.delete(request.getId());
-        } catch (org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException e) {
-            throw new NotFoundException(e);
+        } catch (NotFoundException e) {
+            throw new org.ogr.gor.www.exceptions.service_exceptions.NotFoundException(e);
         }
     }
 }

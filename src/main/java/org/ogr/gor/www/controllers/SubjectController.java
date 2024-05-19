@@ -5,7 +5,7 @@ import org.ogr.gor.www.entities.requests.subjects.AddSubjectRequest;
 import org.ogr.gor.www.entities.requests.subjects.DeleteSubjectRequest;
 import org.ogr.gor.www.entities.requests.subjects.EditSubjectRequest;
 import org.ogr.gor.www.entities.requests.subjects.GetSubjectByIdRequest;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
+import org.ogr.gor.www.exceptions.service_exceptions.NotFoundException;
 import org.ogr.gor.www.services.interfaces.ISubjectService;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;

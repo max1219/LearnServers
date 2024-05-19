@@ -5,8 +5,8 @@ import org.ogr.gor.www.entities.requests.student_groups.DeleteStudentGroupReques
 import org.ogr.gor.www.entities.requests.student_groups.EditStudentGroupRequest;
 import org.ogr.gor.www.entities.requests.student_groups.GetStudentGroupRequest;
 import org.ogr.gor.www.entities.database.StudentGroup;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotEnoughMemoryException;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
+import org.ogr.gor.www.exceptions.service_exceptions.NotEnoughMemoryException;
+import org.ogr.gor.www.exceptions.service_exceptions.NotFoundException;
 
 public interface IStudentGroupService {
     StudentGroup[] getStudentGroups();

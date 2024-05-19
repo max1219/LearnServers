@@ -5,7 +5,7 @@ import org.ogr.gor.www.entities.database.Attendance;
 import org.ogr.gor.www.entities.requests.lessons.DeleteAttendanceRequest;
 import org.ogr.gor.www.entities.requests.lessons.GetAttendanceRequest;
 import org.ogr.gor.www.entities.requests.lessons.SetAttendanceRequest;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
+import org.ogr.gor.www.exceptions.service_exceptions.NotFoundException;
 import org.ogr.gor.www.services.interfaces.IAttendanceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;

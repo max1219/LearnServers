@@ -5,7 +5,7 @@ import org.ogr.gor.www.entities.requests.teachers.AddTeacherRequest;
 import org.ogr.gor.www.entities.requests.teachers.DeleteTeacherRequest;
 import org.ogr.gor.www.entities.requests.teachers.EditTeacherRequest;
 import org.ogr.gor.www.entities.requests.teachers.GetTeacherByIdRequest;
-import org.ogr.gor.www.old.exceptions.service_exceptions.NotFoundException;
+import org.ogr.gor.www.exceptions.service_exceptions.NotFoundException;
 import org.ogr.gor.www.services.interfaces.ITeacherService;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;

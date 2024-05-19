@@ -1,7 +1,7 @@
 package org.ogr.gor.www.repositories.simples;
 
 import org.ogr.gor.www.entities.database.Subject;
-import org.ogr.gor.www.old.exceptions.repository_exceptions.NotFoundException;
+import org.ogr.gor.www.exceptions.repository_exceptions.NotFoundException;
 import org.ogr.gor.www.repositories.interfaces.ISubjectRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
