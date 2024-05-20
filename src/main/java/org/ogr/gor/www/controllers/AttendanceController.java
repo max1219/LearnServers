@@ -35,7 +35,7 @@ public class AttendanceController {
     }
 
     @PostMapping("/attendances/add")
-    public void addSubject(@RequestBody @Valid SetAttendanceRequest request) {
+    public void addAttendance(@RequestBody @Valid SetAttendanceRequest request) {
         try {
             attendanceService.addAttendance(request);
         } catch (Exception ex) {
@@ -44,7 +44,7 @@ public class AttendanceController {
     }
 
     @DeleteMapping("/attendances/delete")
-    public void deleteSubject(@RequestParam @Valid DeleteAttendanceRequest id) {
+    public void deleteAttendance(@RequestParam @Valid DeleteAttendanceRequest id) {
         try {
             attendanceService.deleteAttendance(id);
         } catch (NotFoundException ex) {

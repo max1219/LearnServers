@@ -6,11 +6,11 @@ import javax.validation.constraints.PositiveOrZero;
 
 public class GetLessonsByGroupRequest {
     @NotNull
-    @Pattern(regexp = "^\\d\\d[._\\- ]\\d\\d[._\\- ]\\d\\d\\d\\d$")
+    @Pattern(regexp = "^\\d\\d\\d\\d[._\\- ]\\d\\d[._\\- ]\\d\\d$")
     private final String startDate;
 
     @NotNull
-    @Pattern(regexp = "^\\d\\d[._\\- ]\\d\\d[._\\- ]\\d\\d\\d\\d$")
+    @Pattern(regexp = "^\\d\\d\\d\\d[._\\- ]\\d\\d[._\\- ]\\d\\d$")
     private final String endDate;
 
     @PositiveOrZero

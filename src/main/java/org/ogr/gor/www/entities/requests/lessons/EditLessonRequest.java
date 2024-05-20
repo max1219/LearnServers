@@ -10,7 +10,7 @@ public class EditLessonRequest {
     private final long id;
 
     @NotNull
-    @Pattern(regexp = "^\\d\\d[._\\- ]\\d\\d[._\\- ]\\d\\d\\d\\d$")
+    @Pattern(regexp = "^\\d\\d\\d\\d[._\\- ]\\d\\d[._\\- ]\\d\\d$")
     private final String date;
 
     @Positive

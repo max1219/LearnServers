@@ -11,6 +11,10 @@ public class GetAttendanceRequest {
         this.id = id;
     }
 
+    @java.beans.ConstructorProperties({"id"})
+    public GetAttendanceRequest(String id) {
+        this.id = Long.parseLong(id);
+    }
     public long getId() {
         return id;
     }

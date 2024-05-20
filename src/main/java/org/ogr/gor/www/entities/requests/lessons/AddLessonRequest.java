@@ -7,7 +7,7 @@ import javax.validation.constraints.PositiveOrZero;
 
 public class AddLessonRequest {
     @NotNull
-    @Pattern(regexp = "^\\d\\d[._\\- ]\\d\\d[._\\- ]\\d\\d\\d\\d$")
+    @Pattern(regexp = "^\\d\\d\\d\\d[._\\- ]\\d\\d[._\\- ]\\d\\d$")
     private final String date;
 
     @Positive

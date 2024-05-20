@@ -51,7 +51,7 @@ public class SimpleAttendanceRepository implements IAttendanceRepository {
         return new Attendance(id, jdbcTemplate.query(
                         "SELECT student_id " +
                                 "FROM attendance WHERE lesson_id = ?",
-                        (resultSet, i) -> resultSet.getLong("lesson_id"), id)
+                        (resultSet, i) -> resultSet.getLong("student_id"), id)
                 .stream().mapToLong(value -> value).toArray());
     }
 }
